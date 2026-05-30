@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Services Showcase</title>
+    <style>
+        /* --- CORE CONFIGURATION & VARIABLES --- */
+        :root {
+            --bg-main: #050508;
+            --bg-card: rgba(13, 13, 22, 0.5);
+            --border-glow: rgba(99, 102, 241, 0.4);
+            --text-muted: #808a9d;
+            --accent-gradient: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-main);
+            color: #f8fafc;
+            min-height: 100vh;
+            display: flex;
+            background-image: 
+                radial-gradient(circle at 80% 20%, rgba(168, 85, 247, 0.15) 0%, transparent 40%),
+                radial-gradient(circle at 10% 80%, rgba(99, 102, 241, 0.12) 0%, transparent 50%);
+            background-attachment: fixed;
+        }
+
+        /* --- MODERN ASYMMETRICAL LAYOUT SPLIT --- */
+        .showcase-layout {
+            display: flex;
+            width: 100%;
+            max-width: 1600px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        /* Sticky Left Sidebar Navigation */
+        .sidebar {
+            width: 320px;
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            left: max(0px, calc((100% - 1600px) / 2));
+            padding: 60px 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            border-right: 1px solid rgba(255, 255, 255, 0.05);
+            background: rgba(5, 5, 8, 0.7);
+            backdrop-filter: blur(20px);
+            z-index: 100;
+        }
+
+        .brand-title {
+            font-size: 2rem;
+            font-weight: 900;
+            background: linear-gradient(180deg, #ffffff 0%, #64748b 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: -1px;
+            line-height: 1.1;
+        }
+
+        .brand-tagline {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-top: 8px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 24px;
+        }
+
+        /* Profile & Meta Info Contact Block */
+        .creator-profile {
+            padding: 16px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            margin-bottom: 20px;
+        }
+
+        .creator-name {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: #ffffff;
+            letter-spacing: 0.3px;
+            margin-bottom: 4px;
+        }
+
+        .creator-email {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: color 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .creator-email:hover {
+            color: #6366f1;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 40px;
+            overflow-y: auto;
+        }
+
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: color 0.3s ease, padding-left 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .nav-links a:hover {
+            color: #ffffff;
+            padding-left: 6px;
+        }
+
+        /* Right Content Area */
+        .main-content {
+            margin-left: 320px;
+            flex: 1;
+            padding: 80px 60px;
+        }
+
+        /* --- THE DYNAMIC GRID GENERATOR --- */
+        .category-section {
+            margin-bottom: 90px;
+            scroll-margin-top: 80px;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: baseline;
+            gap: 15px;
+            margin-bottom: 35px;
+        }
+
+        .section-num {
+            font-size: 0.9rem;
+            font-family: monospace;
+            color: #6366f1;
+            font-weight: 700;
+        }
+
+        .section-title {
+            font-size: 1.75rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+        }
+
+        /* Advanced Grid Pattern Setup */
+        .web-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+            gap: 30px;
+        }
+
+        /* --- FUTURISTIC CYBER CARD --- */
+        .web-card {
+            background: var(--bg-card);
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            border-radius: 24px;
+            padding: 35px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.4s cubic-bezier(0.2, 1, 0.2, 1), border-color 0.4s ease;
+        }
+
+        /* Card Top Interactive Accent Border Reveal */
+        .web-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: var(--accent-gradient);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s cubic-bezier(0.2, 1, 0.2, 1);
+        }
+
+        .web-card:hover {
+            transform: translateY(-8px) scale(1.01);
+            border-color: rgba(255, 255, 255, 0.12);
+            background: rgba(18, 18, 30, 0.6);
+            box-shadow: 0 30px 60px -20px rgba(0, 0, 0, 0.8);
+        }
+
+        .web-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        /* Minimal Tag Styling */
+        .web-tag {
+            align-self: flex-start;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: #ffffff;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 6px 14px;
+            border-radius: 100px;
+            margin-bottom: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .web-title {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 14px;
+            letter-spacing: -0.5px;
+        }
+
+        .web-description {
+            font-size: 14px;
+            color: var(--text-muted);
+            line-height: 1.7;
+            margin-bottom: 40px;
+        }
+
+        /* Hyper-minimal, Clean Interactive Buttons */
+        .web-link {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            text-decoration: none;
+            color: #ffffff;
+            font-size: 0.9rem;
+            font-weight: 600;
+            padding: 16px 24px;
+            border-radius: 14px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .web-link .arrow-circle {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.05);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 11px;
+            transition: all 0.3s ease;
+        }
+
+        .web-link:hover {
+            background: #ffffff;
+            color: #050508;
+            border-color: #ffffff;
+        }
+
+        .web-link:hover .arrow-circle {
+            background: #050508;
+            color: #ffffff;
+            transform: rotate(45deg);
+        }
+
+        .footer-credit {
+            font-size: 0.75rem;
+            color: rgba(255, 255, 255, 0.2);
+            font-family: monospace;
+        }
+
+        /* --- RESPONSIVE ADAPTABILITY DESIGN --- */
+        @media (max-width: 1024px) {
+            body { flex-direction: column; }
+            .sidebar {
+                width: 100%;
+                height: auto;
+                position: relative;
+                left: 0;
+                padding: 40px 30px;
+                border-right: none;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            }
+            .nav-links {
+                flex-direction: row;
+                flex-wrap: wrap;
+                gap: 15px;
+                margin: 25px 0 0 0;
+            }
+            .main-content {
+                margin-left: 0;
+                padding: 50px 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="showcase-layout">
+        
+        <!-- STICKY SIDEBAR ENGINE -->
+        <aside class="sidebar">
+            <div>
+                <h1 class="brand-title">Digital<br>Creations</h1>
+                <p class="brand-tagline">Project Showcase</p>
+                
+                <!-- PERSONAL IDENTIFICATION BLOCK -->
+                <div class="creator-profile">
+                    <div class="creator-name">Sadam Qureshi</div>
+                    <a href="mailto:pirsadam05@gmail.com" class="creator-email">✉ pirsadam05@gmail.com</a>
+                </div>
+                
+                <ul class="nav-links">
+                    <li><a href="#restaurant"><span>//</span> Restaurant</a></li>
+                    <li><a href="#gym"><span>//</span> Gym & Fitness</a></li>
+                    <li><a href="#portfolios"><span>//</span> Portfolios</a></li>
+                    <li><a href="#real-estate"><span>//</span> Real Estate</a></li>
+                    <li><a href="#coaching"><span>//</span> Coaching</a></li>
+                    <li><a href="#apps"><span>//</span> App Promotions</a></li>
+                    <li><a href="#business"><span>//</span> Business Systems</a></li>
+                    <li><a href="#custom"><span>//</span> Tailored Custom</a></li>
+                </ul>
+            </div>
+            <div class="footer-credit">©2026 CORE ARCHITECTURE</div>
+        </aside>
+
+        <!-- MAIN DATA COMPONENT -->
+        <main class="main-content">
+
+            <!-- 1. RESTURANT CATEGORY -->
+            <section class="category-section" id="restaurant">
+                <div class="section-header">
+                    <span class="section-num">01 //</span>
+                    <h2 class="section-title">Restaurant Platforms</h2>
+                </div>
+                <div class="web-grid">
+                    <div class="web-card">
+                        <div>
+                            <div class="web-tag">Luxury Dining</div>
+                            <h3 class="web-title">The Gourmet Bistro</h3>
+                            <p class="web-description">An elegant restaurant website architecture featuring fluid modern online reservation interfaces and high-end aesthetic menu blocks.</p>
+                        </div>
+                        <a href="https://sadamqureshi.github.io/Restaurant/" target="_blank" class="web-link">
+                            Explore Interface <span class="arrow-circle">➔</span>
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 2. GYM CATEGORY -->
+            <section class="category-section" id="gym">
+                <div class="section-header">
+                    <span class="section-num">02 //</span>
+                    <h2 class="section-title">GYM & Fitness Environments</h2>
+                </div>
+                <div class="web-grid">
+                    <div class="web-card">
+                        <div>
+                            <div class="web-tag">High Energy</div>
+                            <h3 class="web-title">Iron Pulse Fitness</h3>
+                            <p class="web-description">High-octane fitness ecosystem boasting user premium membership flows, schedule frameworks, and expert trainer indexes.</p>
+                        </div>
+                        <a href="GYM/index.html" target="_blank" class="web-link">
+                            Explore Interface <span class="arrow-circle">➔</span>
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 3. PORTFOLIOS CATEGORY -->
+            <section class="category-section" id="portfolios">
+                <div class="section-header">
+                    <span class="section-num">03 //</span>
+                    <h2 class="section-title">Creative Portfolios</h2>
+                </div>
+                <div class="web-grid">
+                    <div class="web-card">
+                        <div>
+                            <div class="web-tag">Minimalist Studio</div>
+                            <h3 class="web-title">Alex Martinez</h3>
+                            <p class="web-description">Clean, ultra-refined grid design engineered with perfection for digital designers, creators, and visual developers.</p>
+                        </div>
+                        <a href="portfolio/index.html" target="_blank" class="web-link">
+                            Explore Interface <span class="arrow-circle">➔</span>
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 4. REAL ESTATE CATEGORY -->
+            <section class="category-section" id="real-estate">
+                <div class="section-header">
+                    <span class="section-num">04 //</span>
+                    <h2 class="section-title">Real Estate Solutions</h2>
+                </div>
+                <div class="web-grid">
+                    <div class="web-card">
+                        <div>
+                            <div class="web-tag">Enterprise Realty</div>
+                            <h3 class="web-title">Apex Realty Group</h3>
+                            <p class="web-description">Highly functional property landing framework loaded with immersive map positioning hooks and elegant contact modules.</p>
+                        </div>
+                        <a href="Real-Estate/index.html" target="_blank" class="web-link">
+                            Explore Interface <span class="arrow-circle">➔</span>
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 5. COACHING CATEGORY -->
+            <section class="category-section" id="coaching">
+                <div class="section-header">
+                    <span class="section-num">05 //</span>
+                    <h2 class="section-title">Coaching & Mentorship</h2>
+                </div>
+                <div class="web-grid">
+                    <div class="web-card">
+                        <div>
+                            <div class="web-tag">Mindset Mastery</div>
+                            <h3 class="web-title">Life & Performance</h3>
+                            <p class="web-description">Authoritative personal developer ecosystem structuring modern scheduler mechanics, media playlists, and resource blocks.</p>
+                        </div>
+                        <a href="Coaching/index.html" target="_blank" class="web-link">
+                            Explore Interface <span class="arrow-circle">➔</span>
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 6. APP PROMOTIONS CATEGORY -->
+            <section class="category-section" id="apps">
+                <div class="section-header">
+                    <span class="section-num">06 //</span>
+                    <h2 class="section-title">App Target Launchers</h2>
+                </div>
+                <div class="web-grid">
+                    <div class="web-card">
+                        <div>
+                            <div class="web-tag">Mobile SaaS</div>
+                            <h3 class="web-title">Taskly Product Engine</h3>
+                            <p class="web-description">Conversion-optimized deployment layouts built specifically to showcase user interface flows and capture application installs.</p>
+                        </div>
+                        <a href="App-Promotion/index.html" target="_blank" class="web-link">
+                            Explore Interface <span class="arrow-circle">➔</span>
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 7. BUSINESS SERVICES CATEGORY -->
+            <section class="category-section" id="business">
+                <div class="section-header">
+                    <span class="section-num">07 //</span>
+                    <h2 class="section-title">Core Business Ecosystems</h2>
+                </div>
+                <div class="web-grid">
+                    <div class="web-card">
+                        <div>
+                            <div class="web-tag">Medical Infrastructure</div>
+                            <h3 class="web-title">Hospital Appointment System</h3>
+                            <p class="web-description">A deeply functional appointment utility framework deploying real-time availability variables and system management.</p>
+                        </div>
+                        <a href="https://sadamqureshi.github.io/Hospital-Appintment-System/" target="_blank" class="web-link">
+                            Explore Interface <span class="arrow-circle">➔</span>
+                        </a>
+                    </div>
+                    <div class="web-card">
+                        <div>
+                            <div class="web-tag">Medical Landing</div>
+                            <h3 class="web-title">Clinic Page</h3>
+                            <p class="web-description">Polished medical network single-page framework optimized for patient feedback structures and specialized care displays.</p>
+                        </div>
+                        <a href="Business/index.html" target="_blank" class="web-link">
+                            Explore Interface <span class="arrow-circle">➔</span>
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 8. OTHER SERVICES CATEGORY -->
+            <section class="category-section" id="custom">
+                <div class="section-header">
+                    <span class="section-num">08 //</span>
+                    <h2 class="section-title">Tailored Custom Services</h2>
+                </div>
+                <div class="web-grid">
+                    <div class="web-card">
+                        <div>
+                            <div class="web-tag">Utility Service</div>
+                            <h3 class="web-title">EcoClean Janitorial</h3>
+                            <p class="web-description">Premium localization framework layout custom built with responsive budget calculators and interactive client metrics.</p>
+                        </div>
+                        <a href="#" target="_blank" class="web-link">
+                            Explore Interface <span class="arrow-circle">➔</span>
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prestige Commercial | Elite Real Estate Brokerage</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --brand-navy: #0f172a;
+            --brand-gold: #c5a880;
+            --brand-gold-hover: #b3946b;
+            --slate-gray: #475569;
+            --bg-light: #f8fafc;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: #1e293b;
+            background-color: #fff;
+        }
+
+        h1, h2, h3, .navbar-brand {
+            font-family: 'Cinzel', serif;
+            letter-spacing: 1px;
+        }
+
+        /* Utilities */
+        .bg-navy { background-color: var(--brand-navy); }
+        .text-gold { color: var(--brand-gold); }
+        .btn-gold {
+            background-color: var(--brand-gold);
+            color: var(--brand-navy);
+            font-weight: 600;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            border: 1px solid var(--brand-gold);
+        }
+        .btn-gold:hover {
+            background-color: var(--brand-gold-hover);
+            color: var(--brand-navy);
+            border-color: var(--brand-gold-hover);
+        }
+        .btn-outline-gold {
+            background-color: transparent;
+            color: var(--brand-gold);
+            border: 1px solid var(--brand-gold);
+            border-radius: 4px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        .btn-outline-gold:hover {
+            background-color: var(--brand-gold);
+            color: var(--brand-navy);
+        }
+
+        /* Navbar Customization */
+        .navbar {
+            background-color: rgba(15, 23, 42, 0.95);
+            border-bottom: 1px solid rgba(197, 168, 128, 0.2);
+            backdrop-filter: blur(8px);
+        }
+
+        /* Hero Wrapper */
+        .hero-block {
+            padding: 180px 0 120px 0;
+            background: linear-gradient(rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.95)), 
+                        url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
+        }
+
+        /* Property Cards Styling */
+        .property-card {
+            border: none;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .property-card:hover {
+            transform: translateY(-8px);
+        }
+        .property-badge {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background-color: var(--brand-navy);
+            color: var(--brand-gold);
+            border: 1px solid var(--brand-gold);
+            padding: 4px 12px;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        /* Steps Timeline Graphics */
+        .process-node {
+            position: relative;
+            text-align: center;
+        }
+        .process-icon {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background-color: var(--bg-light);
+            border: 2px solid var(--brand-gold);
+            color: var(--brand-navy);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            margin-bottom: 15px;
+            z-index: 2;
+            position: relative;
+        }
+
+        /* Calculator Widget Styling */
+        .calc-box {
+            background-color: #ffffff;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+        }
+
+        section {
+            padding: 90px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Top Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top py-3">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center fw-bold text-white fs-4" href="#">
+                <i class="bi bi-building text-gold me-2"></i> PRESTIGE <span class="text-gold ms-2">ASSETS</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="mainNav">
+                <ul class="navbar-nav ms-auto align-items-center gap-4">
+                    <li class="nav-item"><a class="nav-link text-white-50" href="#listings">Active Listings</a></li>
+                    <li class="nav-item"><a class="nav-link text-white-50" href="#process">Acquisition Process</a></li>
+                    <li class="nav-item"><a class="nav-link text-white-50" href="#calculator">Cap Rate Tool</a></li>
+                    <li class="nav-item"><a class="btn btn-gold btn-sm px-4 py-2" href="#consultation">Book Consultation</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Premium Hero Section -->
+    <section class="hero-block text-white">
+        <div class="container">
+            <div class="row align-items-center g-5">
+                <div class="col-lg-7 text-center text-lg-start">
+                    <h1 class="display-3 fw-bold mb-4 lh-1 text-white">
+                        Securing Commercial <span class="text-gold">Alpha</span> Real Estate Assets
+                    </h1>
+                    <p class="lead text-white-50 mb-5 max-width-xl">
+                        Representing institutions, family offices, and discerning private investors across high-yielding industrial warehouse systems, Class-A corporate office complexes, and primary retail footprints.
+                    </p>
+                    <div class="d-flex justify-content-center justify-content-lg-start gap-3">
+                        <a href="#listings" class="btn btn-gold btn-lg px-4 fs-6">Explore Inventory</a>
+                        <a href="#calculator" class="btn btn-outline-gold btn-lg px-4 fs-6">Analyze Asset Yields</a>
+                    </div>
+                </div>
+                <div class="col-lg-5">
+                    <!-- Quick Portfolio Inquiry Form -->
+                    <div class="p-4 bg-white text-dark rounded shadow-lg border-top border-4 border-gold">
+                        <h4 class="fw-bold mb-2 text-navy">Direct Placement Request</h4>
+                        <p class="text-muted small mb-4">Submit mandates directly to our acquisitions desk for off-market access panels.</p>
+                        <form action="#" method="POST">
+                            <div class="mb-3">
+                                <label class="form-label small fw-semibold">Target Asset Architecture</label>
+                                <select class="form-select bg-light">
+                                    <option>Logistics & Distribution Warehouses</option>
+                                    <option>Class-A Premium Office Complexes</option>
+                                    <option>Multi-tenant Retail Plazas</option>
+                                    <option>Institutional Real Estate Portfolio Packages</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label small fw-semibold">Capital Allocation Range ($ USD)</label>
+                                <select class="form-select bg-light">
+                                    <option>$2M — $5M Allocation Matrix</option>
+                                    <option>$5M — $20M Allocation Matrix</option>
+                                    <option>$20M — $100M+ Corporate Placement</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label small fw-semibold">Corporate Email Address</label>
+                                <input type="email" class="form-control bg-light" placeholder="exec@firm.com" required>
+                            </div>
+                            <button type="submit" class="btn btn-gold w-100 py-2.5 mt-2">Request Briefing Book</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Strategic Active Listings -->
+    <section id="listings" class="bg-light">
+        <div class="container">
+            <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-end mb-5">
+                <div>
+                    <span class="text-gold fw-bold text-uppercase small tracking-wider mb-2 d-block">Premium Inventory</span>
+                    <h2 class="fw-bold text-navy mb-0">Current Institutional Placements</h2>
+                </div>
+                <div class="mt-3 mt-md-0">
+                    <span class="badge bg-secondary bg-opacity-10 text-dark px-3 py-2 rounded">Data Updated: Live 2026 Fleet Matrix</span>
+                </div>
+            </div>
+
+            <div class="row g-4">
+                <!-- Listing 1 -->
+                <div class="col-md-4">
+                    <div class="card property-card h-100 position-relative">
+                        <span class="property-badge">For Sale / Net Lease</span>
+                        <img src="https://images.unsplash.com/photo-1554469384-e58fac16e23a?auto=format&fit=crop&w=600&q=80" class="card-img-top" alt="Commercial Office Building" style="height: 240px; object-fit: cover;">
+                        <div class="card-body p-4">
+                            <h5 class="fw-bold text-navy mb-2">The Meridian Class-A Hub</h5>
+                            <p class="text-muted small mb-3"><i class="bi bi-geo-alt-fill me-1"></i> Financial District, Core Hub Metro</p>
+                            <div class="d-flex justify-content-between border-top pt-3 text-secondary small">
+                                <span><i class="bi bi-arrows-fullscreen me-1"></i> 45,000 SF</span>
+                                <span><i class="bi bi-percent me-1"></i> 6.4% Cap Rate</span>
+                            </div>
+                        </div>
+                        <div class="card-footer bg-white p-4 border-top-0 pt-0">
+                            <button class="btn btn-outline-gold w-100">Request Financial Packet</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Listing 2 -->
+                <div class="col-md-4">
+                    <div class="card property-card h-100 position-relative">
+                        <span class="property-badge">Off-Market Opportunity</span>
+                        <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=600&q=80" class="card-img-top" alt="Logistics Center Logistics" style="height: 240px; object-fit: cover;">
+                        <div class="card-body p-4">
+                            <h5 class="fw-bold text-navy mb-2">Apex Intermodal Logistics Center</h5>
+                            <p class="text-muted small mb-3"><i class="bi bi-geo-alt-fill me-1"></i> Industrial Corridor Gate 4</p>
+                            <div class="d-flex justify-content-between border-top pt-3 text-secondary small">
+                                <span><i class="bi bi-arrows-fullscreen me-1"></i> 180,000 SF</span>
+                                <span><i class="bi bi-percent me-1"></i> 7.2% Cap Rate</span>
+                            </div>
+                        </div>
+                        <div class="card-footer bg-white p-4 border-top-0 pt-0">
+                            <button class="btn btn-outline-gold w-100">Request Financial Packet</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Listing 3 -->
+                <div class="col-md-4">
+                    <div class="card property-card h-100 position-relative">
+                        <span class="property-badge">Anchored Retail</span>
+                        <img src="https://images.unsplash.com/photo-1569003339405-ea396a5a8a90?auto=format&fit=crop&w=600&q=80" class="card-img-top" alt="Retail Commercial Center" style="height: 240px; object-fit: cover;">
+                        <div class="card-body p-4">
+                            <h5 class="fw-bold text-navy mb-2">Omni-Channel Retail Pavilion</h5>
+                            <p class="text-muted small mb-3"><i class="bi bi-geo-alt-fill me-1"></i> High-Traffic Master Development</p>
+                            <div class="d-flex justify-content-between border-top pt-3 text-secondary small">
+                                <span><i class="bi bi-arrows-fullscreen me-1"></i> 32,500 SF</span>
+                                <span><i class="bi bi-percent me-1"></i> 5.9% Cap Rate</span>
+                            </div>
+                        </div>
+                        <div class="card-footer bg-white p-4 border-top-0 pt-0">
+                            <button class="btn btn-outline-gold w-100">Request Financial Packet</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Deal Lifecycle Steps Flow -->
+    <section id="process" class="bg-white">
+        <div class="container">
+            <div class="text-center max-width-md mx-auto mb-5" style="max-width: 650px;">
+                <span class="text-gold fw-bold text-uppercase small tracking-wider">Strategic Framework</span>
+                <h2 class="fw-bold text-navy mt-1">Transaction Pipeline Milestones</h2>
+                <p class="text-slate-gray">Our proprietary client placement framework ensures complete transparency and maximum security from investment thesis to closed settlement capitalization panels.</p>
+            </div>
+
+            <div class="row g-4 justify-content-center">
+                <div class="col-6 col-lg-3">
+                    <div class="process-node">
+                        <div class="process-icon"><i class="bi bi-search"></i></div>
+                        <h5 class="fw-bold text-navy">1. Mandate Definition</h5>
+                        <p class="text-muted small px-2">Analyzing cash yields profiles, targeted risk thresholds, and ideal asset parameters.</p>
+                    </div>
+                </div>
+                <div class="col-6 col-lg-3">
+                    <div class="process-node">
+                        <div class="process-icon"><i class="bi bi-briefcase"></i></div>
+                        <h5 class="fw-bold text-navy">2. Off-Market Sourcing</h5>
+                        <p class="text-muted small px-2">Leveraging extensive commercial channels to discover assets before public listing.</p>
+                    </div>
+                </div>
+                <div class="col-6 col-lg-3">
+                    <div class="process-node">
+                        <div class="process-icon"><i class="bi bi-shield-shaded"></i></div>
+                        <h5 class="fw-bold text-navy">3. Due Diligence Run</h5>
+                        <p class="text-muted small px-2">Examing structural engineering assets, structural tenant rolls, and environmental compliance.</p>
+                    </div>
+                </div>
+                <div class="col-6 col-lg-3">
+                    <div class="process-node">
+                        <div class="process-icon"><i class="bi bi-file-earmark-check"></i></div>
+                        <h5 class="fw-bold text-navy">4. Safe Closing Sync</h5>
+                        <p class="text-muted small px-2">Finalizing strict structuring parameters, legal closing execution, and capital transfer management.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Capital Yield Evaluation Tool Component -->
+    <section id="calculator" class="bg-light">
+        <div class="container">
+            <div class="row align-items-center g-5">
+                <div class="col-lg-5">
+                    <span class="text-gold fw-bold text-uppercase small tracking-wider">Underwriting Desk</span>
+                    <h2 class="fw-bold text-navy mb-3">Asset Performance Yield Estimator</h2>
+                    <p class="text-slate-gray mb-4">
+                        Quickly evaluate prospective properties by calculating the **Capitalization Rate (Cap Rate)**. This metric measures the expected rate of return generated on a real estate investment property without accounting for variable debt leverage structures.
+                    </p>
+                    <blockquote class="blockquote border-start border-4 border-gold ps-3 py-1 bg-white rounded p-3 shadow-sm">
+                        <p class="small text-muted mb-0 font-monospace">
+                            Formula Matrix:<br>
+                            Cap Rate = (Net Operating Income / Asset Valuation Price) × 100
+                        </p>
+                    </blockquote>
+                </div>
+                <div class="col-lg-7">
+                    <!-- Interactive Underwriting Calculator Module -->
+                    <div class="calc-box p-4 p-md-5">
+                        <h4 class="fw-bold text-navy mb-4"><i class="bi bi-calculator me-2 text-gold"></i>Cap Rate Engine</h4>
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label class="form-label small fw-bold">Gross Projected Annual Revenue ($)</label>
+                                <input type="number" id="grossRevenue" class="form-control" value="250000" oninput="calculateCapRate()">
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label small fw-bold">Annual Operating Expenses ($)</label>
+                                <input type="number" id="operatingExpenses" class="form-control" value="65000" oninput="calculateCapRate()">
+                            </div>
+                            <div class="col-12">
+                                <label class="form-label small fw-bold">Target Purchase Asset Price ($)</label>
+                                <input type="number" id="purchasePrice" class="form-control" value="2600000" oninput="calculateCapRate()">
+                            </div>
+                            <div class="col-12 mt-4">
+                                <div class="p-4 bg-navy text-white rounded d-flex flex-column flex-sm-row justify-content-between align-items-sm-center">
+                                    <div>
+                                        <h5 class="text-gold fw-bold mb-1">Calculated Baseline Analytics</h5>
+                                        <p class="text-white-50 small mb-0">Net Operating Income (NOI): <span id="noiDisplay" class="text-white fw-bold">$185,000</span></p>
+                                    </div>
+                                    <div class="text-sm-end mt-3 mt-sm-0">
+                                        <span class="d-block text-white-50 small">Resulting Cap Rate</span>
+                                        <span id="capRateResult" class="display-6 fw-bold text-gold">7.12%</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Institutional Footer & Contact Panel -->
+    <section id="consultation" class="bg-navy text-white pt-5 pb-4">
+        <div class="container mt-4">
+            <div class="row g-5">
+                <div class="col-md-6">
+                    <h3 class="fw-bold text-white mb-3">Prestige Commercial Assets Brokerage</h3>
+                    <p class="text-white-50 max-width-md mb-4">
+                        Providing specialized, highly confidential brokerage services to commercial buyers, sellers, and corporate occupiers nationwide.
+                    </p>
+                    <div class="d-flex flex-column gap-2 text-white-50 small">
+                        <span><i class="bi bi-telephone text-gold me-2"></i> Corporate Line: +1 (555) 019-2831</span>
+                        <span><i class="bi bi-envelope text-gold me-2"></i> Direct Desk: desk@prestigecp.com</span>
+                        <span><i class="bi bi-geo-alt text-gold me-2"></i> Suite 940, Infinite Commerce Tower, NY</span>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <h5 class="fw-bold text-gold mb-3">Subscribe to Off-Market Advisory List</h5>
+                    <p class="text-white-50 small mb-3">Receive weekly secure listings containing unadvertised portfolio packages directly.</p>
+                    <div class="input-group mb-3">
+                        <input type="email" class="form-control border-0 bg-secondary bg-opacity-25 text-white" placeholder="your.name@firm.com" aria-label="Corporate Email">
+                        <button class="btn btn-gold px-4" type="button">Subscribe Mandate</button>
+                    </div>
+                </div>
+            </div>
+            <hr class="border-secondary my-5">
+            <div class="d-flex flex-column flex-md-row justify-content-between align-items-center text-white-50 small">
+                <p class="mb-0">&copy; 2026 Prestige Assets Commercial Real Estate. All individual broker metrics are verified. Brokerage Licensing #49210-CR.</p>
+                <div class="d-flex gap-3 mt-3 mt-md-0">
+                    <a href="#" class="text-white-50 text-decoration-none">Regulatory Disclosures</a>
+                    <a href="#" class="text-white-50 text-decoration-none">Privacy Charter</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bootstrap 5 Bundle JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Cap Rate Engine Interactive Calculation Script -->
+    <script>
+        function calculateCapRate() {
+            const grossRevenue = parseFloat(document.getElementById('grossRevenue').value) || 0;
+            const operatingExpenses = parseFloat(document.getElementById('operatingExpenses').value) || 0;
+            const purchasePrice = parseFloat(document.getElementById('purchasePrice').value) || 0;
+
+            // Calculate Net Operating Income (NOI)
+            const noi = grossRevenue - operatingExpenses;
+            document.getElementById('noiDisplay').innerText = '$' + noi.toLocaleString('en-US', { minimumFractionDigits: 0, maximumFractionDigits: 0 });
+
+            // Calculate Capitalization Rate percentage
+            if (purchasePrice > 0 && noi > 0) {
+                const capRate = (noi / purchasePrice) * 100;
+                document.getElementById('capRateResult').innerText = capRate.toFixed(2) + '%';
+            } else {
+                document.getElementById('capRateResult').innerText = '0.00%';
+            }
+        }
+        
+        // Run calculations once on launch to synchronize starting metrics
+        window.onload = calculateCapRate;
+    </script>
+</body>
+</html>

@@ -1,0 +1,542 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MediTrack - Your Smart Health Companion</title>
+    <!-- Bootstrap 5 CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- Bootstrap Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      :root {
+        --primary-teal: #0d9488;
+        --primary-dark: #111827;
+        --accent-blue: #0284c7;
+        --bg-light: #f8fafc;
+      }
+
+      body {
+        font-family: "Plus Jakarta Sans", sans-serif;
+        color: #334155;
+        background-color: #fff;
+        overflow-x: hidden;
+      }
+
+      .text-primary-teal {
+        color: var(--primary-teal);
+      }
+      .bg-primary-teal {
+        background-color: var(--primary-teal);
+      }
+      .bg-light-teal {
+        background-color: #f0fdfa;
+      }
+
+      /* Navbar Styling */
+      .navbar {
+        backdrop-filter: blur(10px);
+        background-color: rgba(255, 255, 255, 0.9);
+        border-bottom: 1px solid #e2e8f0;
+      }
+
+      /* Hero Section */
+      .hero-section {
+        padding: 160px 0 100px 0;
+        background: radial-gradient(circle at 90% 10%, #ccfbf1 0%, #ffffff 70%);
+      }
+
+      .btn-download {
+        background-color: var(--primary-dark);
+        color: white;
+        padding: 12px 24px;
+        border-radius: 10px;
+        transition: all 0.3s ease;
+      }
+      .btn-download:hover {
+        background-color: var(--primary-teal);
+        color: white;
+        transform: translateY(-2px);
+      }
+
+      /* Feature Cards */
+      .feature-card {
+        border: 1px solid #e2e8f0;
+        border-radius: 16px;
+        padding: 30px;
+        background: white;
+        transition: all 0.3s ease;
+      }
+      .feature-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(13, 148, 136, 0.1);
+        border-color: var(--primary-teal);
+      }
+      .icon-box {
+        width: 60px;
+        height: 60px;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 24px;
+        margin-bottom: 20px;
+      }
+
+      /* Mockup Previews */
+      .mock-phone {
+        border: 12px solid var(--primary-dark);
+        border-radius: 36px;
+        overflow: hidden;
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        background: white;
+      }
+
+      /* Chat Widget Interface */
+      .chat-container {
+        height: 350px;
+        display: flex;
+        flex-direction: column;
+        background: #f1f5f9;
+      }
+      .chat-messages {
+        flex-grow: 1;
+        overflow-y: auto;
+        padding: 15px;
+      }
+      .message {
+        margin-bottom: 10px;
+        padding: 10px 14px;
+        border-radius: 12px;
+        max-width: 80%;
+        font-size: 0.9rem;
+      }
+      .msg-bot {
+        background: white;
+        color: var(--primary-dark);
+        align-self: flex-start;
+        border-bottom-left-radius: 2px;
+      }
+      .msg-user {
+        background: var(--primary-teal);
+        color: white;
+        align-self: flex-end;
+        border-bottom-right-radius: 2px;
+        margin-left: auto;
+      }
+
+      /* Section Padding */
+      section {
+        padding: 100px 0;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3">
+      <div class="container">
+        <a
+          class="navbar-brand d-flex align-items-center fw-bold text-primary-dark fs-3"
+          href="#"
+        >
+          <i class="bi bi-heart-pulse-fill text-primary-teal me-2"></i>MediTrack
+        </a>
+        <button
+          class="navbar-brand navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto align-items-center gap-3">
+            <li class="nav-item">
+              <a class="nav-link fw-medium" href="#features">Features</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link fw-medium" href="#vitals">Vitals Tracking</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link fw-medium" href="#ai-bot">AI Assistant</a>
+            </li>
+            <li class="nav-item">
+              <a class="btn btn-download btn-sm px-4" href="#download"
+                >Download Now</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+      <div class="container">
+        <div class="row align-items-center g-5">
+          <div class="col-lg-6">
+            <span
+              class="badge bg-light-teal text-primary-teal px-3 py-2 rounded-pill fw-semibold mb-3"
+            >
+              <i class="bi bi-sparkles me-1"></i> Next-Gen Health Ecosystem
+            </span>
+            <h1 class="display-4 fw-bold text-primary-dark mb-3 lh-sm">
+              Your entire health journey,
+              <span class="text-primary-teal">intelligently managed.</span>
+            </h1>
+            <p class="lead text-muted mb-4">
+              MediTrack empowers you to effortlessly secure your medical
+              documents, track real-time vital metrics, and consult an AI
+              medical assistant whenever you need clarity.
+            </p>
+            <div class="d-flex flex-wrap gap-3">
+              <a
+                href="#"
+                class="btn btn-download d-flex align-items-center gap-2"
+              >
+                <i class="bi bi-apple fs-4"></i>
+                <div class="text-start">
+                  <small class="d-block" style="font-size: 10px"
+                    >Download on the</small
+                  >
+                  <strong>App Store</strong>
+                </div>
+              </a>
+              <a
+                href="#"
+                class="btn btn-download d-flex align-items-center gap-2"
+              >
+                <i class="bi bi-google-play fs-4"></i>
+                <div class="text-start">
+                  <small class="d-block" style="font-size: 10px"
+                    >Get it on</small
+                  >
+                  <strong>Google Play</strong>
+                </div>
+              </a>
+            </div>
+          </div>
+          <div class="col-lg-6 text-center">
+            <!-- Dashboard Mock Visual -->
+            <div
+              class="p-4 bg-white rounded-4 shadow-lg border border-light max-width-md mx-auto"
+              style="max-width: 500px"
+            >
+              <div
+                class="d-flex justify-content-between align-items-center mb-4"
+              >
+                <div class="d-flex align-items-center gap-2">
+                  <div
+                    class="bg-primary-teal text-white rounded-circle p-2"
+                    style="
+                      width: 40px;
+                      height: 40px;
+                      display: flex;
+                      align-items: center;
+                      justify-content: center;
+                    "
+                  >
+                    <i class="bi bi-person-fill"></i>
+                  </div>
+                  <div class="text-start">
+                    <h6 class="mb-0 fw-bold">Welcome back, Alex</h6>
+                    <small class="text-muted">Health Sync Status: Active</small>
+                  </div>
+                </div>
+                <span
+                  class="badge bg-success bg-opacity-10 text-success rounded-pill px-2.5 py-1"
+                  >Secure</span
+                >
+              </div>
+              <div class="row g-3 text-start">
+                <div class="col-6">
+                  <div
+                    class="p-3 bg-light rounded-3 border-start border-danger border-3"
+                  >
+                    <small class="text-muted d-block">Heart Rate</small>
+                    <span class="fs-4 fw-bold text-dark"
+                      >72
+                      <small class="fs-6 fw-normal text-muted">BPM</small></span
+                    >
+                  </div>
+                </div>
+                <div class="col-6">
+                  <div
+                    class="p-3 bg-light rounded-3 border-start border-primary border-3"
+                  >
+                    <small class="text-muted d-block">Blood Pressure</small>
+                    <span class="fs-4 fw-bold text-dark">120/80</span>
+                  </div>
+                </div>
+                <div class="col-12">
+                  <div
+                    class="p-3 bg-light-teal rounded-3 border d-flex justify-content-between align-items-center"
+                  >
+                    <div>
+                      <h6 class="mb-1 fw-bold text-primary-teal">
+                        <i class="bi bi-robot me-2"></i>AI Health Assistant
+                      </h6>
+                      <small class="text-muted"
+                        >"Based on your labs, your Vitamin D is..."</small
+                      >
+                    </div>
+                    <i class="bi bi-chevron-right text-primary-teal"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Core Features Section -->
+    <section id="features" class="bg-light-teal">
+      <div class="container">
+        <div
+          class="text-center max-width-md mx-auto mb-5"
+          style="max-width: 600px"
+        >
+          <h2 class="fw-bold text-primary-dark">
+            Everything you need to stay on track
+          </h2>
+          <p class="text-muted">
+            Ditch the messy paperwork and fragmented monitoring tools. MediTrack
+            unifies your baseline health metrics seamlessly.
+          </p>
+        </div>
+
+        <div class="row g-4">
+          <!-- Feature 1 -->
+          <div class="col-md-4">
+            <div class="feature-card h-100">
+              <div class="icon-box bg-primary-teal text-white">
+                <i class="bi bi-folder-check"></i>
+              </div>
+              <h4 class="fw-bold text-primary-dark mb-3">
+                Secure Document Vault
+              </h4>
+              <p class="text-muted mb-0">
+                Upload lab results, prescriptions, and vaccine records. Fully
+                encrypted and instantly accessible whenever you visit a new
+                clinic or doctor.
+              </p>
+            </div>
+          </div>
+          <!-- Feature 2 -->
+          <div class="col-md-4">
+            <div class="feature-card h-100">
+              <div
+                class="icon-box bg-primary text-white"
+                style="background-color: var(--accent-blue) !important"
+              >
+                <i class="bi bi-activity"></i>
+              </div>
+              <h4 class="fw-bold text-primary-dark mb-3">Vital Records Logs</h4>
+              <p class="text-muted mb-0">
+                Manually track or auto-sync your blood pressure, glucose levels,
+                heart rates, and oxygen saturation with intuitive daily logs and
+                charts.
+              </p>
+            </div>
+          </div>
+          <!-- Feature 3 -->
+          <div class="col-md-4">
+            <div class="feature-card h-100">
+              <div class="icon-box bg-dark text-white">
+                <i class="bi bi-chat-heart"></i>
+              </div>
+              <h4 class="fw-bold text-primary-dark mb-3">
+                Conversational AI Chatbot
+              </h4>
+              <p class="text-muted mb-0">
+                Powered by medical-trained LLMs. Ask complex questions about
+                your symptoms, understand lab ranges, and receive instant
+                educational triage advice.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Interactive AI Preview Feature -->
+    <section id="ai-bot">
+      <div class="container">
+        <div class="row align-items-center g-5">
+          <div class="col-lg-5">
+            <span
+              class="text-primary-teal fw-bold text-uppercase tracking-wider small d-block mb-2"
+              >Instant Clarity</span
+            >
+            <h2 class="fw-bold text-primary-dark mb-3">
+              Meet your 24/7 AI Health Companion
+            </h2>
+            <p class="text-muted mb-4">
+              Confused by complex medical terminology in your latest report?
+              Simply paste it or talk to our chatbot. Get immediate, simplified
+              breakdowns of what your numbers imply.
+            </p>
+            <div class="d-flex align-items-start gap-3 mb-3">
+              <div class="text-primary-teal fs-4 pt-1">
+                <i class="bi bi-shield-check"></i>
+              </div>
+              <div>
+                <h6 class="fw-bold mb-1">Private & Compliant</h6>
+                <p class="text-muted small">
+                  Your conversation metrics are anonymized and tightly
+                  protected.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-7">
+            <!-- Interactive UI Phone Module -->
+            <div class="mock-phone mx-auto" style="max-width: 400px">
+              <div
+                class="bg-primary-dark text-white p-3 d-flex align-items-center gap-3"
+              >
+                <i class="bi bi-robot fs-4 text-primary-teal"></i>
+                <div>
+                  <h6 class="mb-0 fw-bold text-white">MediTrack AI</h6>
+                  <small class="text-muted" style="color: #a1a1aa !important"
+                    ><span class="text-success">●</span> Virtual
+                    Assistant</small
+                  >
+                </div>
+              </div>
+              <div class="chat-container">
+                <div class="chat-messages d-flex flex-column" id="chatBox">
+                  <div class="message msg-bot">
+                    Hello! I can help you decode lab results or track symptoms.
+                    What's on your mind today?
+                  </div>
+                </div>
+                <div class="p-2 bg-white border-top d-flex gap-2">
+                  <input
+                    type="text"
+                    id="userInput"
+                    class="form-control form-control-sm border-0 bg-light"
+                    placeholder="Type 'Explain my high blood pressure'..."
+                  />
+                  <button
+                    onclick="sendMessage()"
+                    class="btn btn-primary-teal text-white btn-sm px-3"
+                  >
+                    <i class="bi bi-send"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Call to Action Footer -->
+    <section
+      id="download"
+      class="bg-primary-dark text-white text-center position-relative py-5"
+    >
+      <div class="container my-5">
+        <h2 class="display-5 fw-bold text-white mb-3">
+          Take control of your vitals today.
+        </h2>
+        <p
+          class="text-muted mx-auto mb-5"
+          style="max-width: 600px; color: #94a3b8 !important"
+        >
+          Join thousands of users logging records safely, organizing metrics
+          efficiently, and staying healthy. Available globally.
+        </p>
+        <div class="d-flex justify-content-center flex-wrap gap-3">
+          <a
+            href="#"
+            class="btn btn-outline-light d-flex align-items-center gap-2 px-4 py-2"
+          >
+            <i class="bi bi-apple fs-4"></i> App Store
+          </a>
+          <a
+            href="#"
+            class="btn btn-primary-teal text-white d-flex align-items-center gap-2 px-4 py-2"
+          >
+            <i class="bi bi-google-play fs-4"></i> Google Play
+          </a>
+        </div>
+      </div>
+      <hr class="border-secondary my-5" />
+      <div class="container">
+        <div
+          class="d-flex flex-column flex-md-row justify-content-between align-items-center text-muted small"
+        >
+          <p class="mb-0">
+            &copy; 2026 MediTrack App. All rights reserved. Disclaimer: AI
+            inputs are purely informational.
+          </p>
+          <div class="d-flex gap-3 mt-3 mt-md-0">
+            <a href="#" class="text-muted text-decoration-none"
+              >Privacy Policy</a
+            >
+            <a href="#" class="text-muted text-decoration-none"
+              >Terms of Service</a
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Bootstrap 5 Bundle JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Chat Demonstration Mock Logic -->
+    <script>
+      function sendMessage() {
+        const input = document.getElementById("userInput");
+        const chatBox = document.getElementById("chatBox");
+
+        if (input.value.trim() === "") return;
+
+        // Render User Prompt
+        const userMsg = document.createElement("div");
+        userMsg.className = "message msg-user";
+        userMsg.innerText = input.value;
+        chatBox.appendChild(userMsg);
+
+        const typedText = input.value.toLowerCase();
+        input.value = "";
+        chatBox.scrollTop = chatBox.scrollHeight;
+
+        // Logic Simulation response
+        setTimeout(() => {
+          const botMsg = document.createElement("div");
+          botMsg.className = "message msg-bot";
+
+          if (typedText.includes("pressure") || typedText.includes("bp")) {
+            botMsg.innerText =
+              "A normal tracking baseline sits near 120/80 mmHg. Consistent readings higher than 130/80 indicate stage 1 hypertension. Make sure to log this into your Vital Log Panel so you can generate a report summary for your practitioner.";
+          } else {
+            botMsg.innerText =
+              "Understood! I've cataloged that request. With MediTrack, you can attach documents or check trends directly inside your personal account dashboard.";
+          }
+
+          chatBox.appendChild(botMsg);
+          chatBox.scrollTop = chatBox.scrollHeight;
+        }, 800);
+      }
+    </script>
+  </body>
+</html>

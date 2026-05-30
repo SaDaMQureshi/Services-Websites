@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creative Portfolio | Elite Full-Stack Product Developer</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --dev-bg: #090b11;
+            --dev-card: #131722;
+            --dev-violet: #8b5cf6;
+            --dev-violet-hover: #7c3aed;
+            --text-secondary: #94a3b8;
+            --text-primary: #f8fafc;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            color: var(--text-primary);
+            background-color: var(--dev-bg);
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, .heading-font {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+        }
+
+        /* Utilities */
+        .text-violet { color: var(--dev-violet); }
+        .bg-dev-card { background-color: var(--dev-card); }
+        
+        .btn-violet {
+            background-color: var(--dev-violet);
+            color: white;
+            font-weight: 600;
+            padding: 12px 28px;
+            border-radius: 6px;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            border: none;
+        }
+        .btn-violet:hover {
+            background-color: var(--dev-violet-hover);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(139, 92, 246, 0.3);
+        }
+
+        .btn-outline-custom {
+            background-color: transparent;
+            color: var(--text-primary);
+            font-weight: 600;
+            padding: 12px 28px;
+            border-radius: 6px;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+        .btn-outline-custom:hover {
+            background-color: white;
+            color: var(--dev-bg);
+            border-color: white;
+        }
+
+        /* Top Navigation Header */
+        .navbar {
+            background-color: rgba(9, 11, 17, 0.9);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(12px);
+        }
+
+        /* Hero Layout */
+        .hero-billboard {
+            padding: 180px 0 100px 0;
+            background: radial-gradient(circle at 90% 10%, rgba(139, 92, 246, 0.08) 0%, rgba(9, 11, 17, 1) 70%);
+        }
+
+        /* Skills Progress Module */
+        .skill-label-group {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+        .progress {
+            background-color: rgba(255, 255, 255, 0.05);
+            height: 8px;
+            border-radius: 10px;
+            overflow: visible;
+        }
+        .progress-bar {
+            background-color: var(--dev-violet);
+            border-radius: 10px;
+            transition: width 1.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        /* Custom Project Gallery Grid */
+        .gallery-card {
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            overflow: hidden;
+            background-color: var(--dev-card);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .gallery-card:hover {
+            transform: translateY(-6px);
+            border-color: rgba(139, 92, 246, 0.3);
+            box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.5);
+        }
+        .gallery-img-container {
+            position: relative;
+            aspect-ratio: 16/10;
+            overflow: hidden;
+            background-color: #1a1f2c;
+        }
+        .gallery-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        .gallery-card:hover .gallery-img {
+            transform: scale(1.05);
+        }
+
+        /* Registration Form Input Styling override */
+        .form-control, .form-textarea {
+            background-color: rgba(255, 255, 255, 0.03) !important;
+            border: 1px solid rgba(255, 255, 255, 0.08) !important;
+            color: var(--text-primary) !important;
+            border-radius: 6px;
+        }
+        .form-control:focus {
+            border-color: var(--dev-violet) !important;
+            box-shadow: none !important;
+        }
+        ::placeholder {
+            color: #475569 !important;
+        }
+
+        section {
+            padding: 100px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Navigation Navigation Grid -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top py-3">
+        <div class="container">
+            <a class="navbar-brand heading-font fs-3 text-white m-0" href="#">
+                VANCE<span class="text-violet">.DEV</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#portfolioNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="portfolioNav">
+                <ul class="navbar-nav ms-auto align-items-center gap-4">
+                    <li class="nav-item"><a class="nav-link text-white-50" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link text-white-50" href="#skills">Skills Matrix</a></li>
+                    <li class="nav-item"><a class="nav-link text-white-50" href="#projects">Gallery Work</a></li>
+                    <li class="nav-item"><a class="btn btn-violet btn-sm px-4" href="#contact">Let's Connect</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Showcase Header -->
+    <section class="hero-billboard">
+        <div class="container">
+            <div class="row align-items-center g-5">
+                <div class="col-lg-7">
+                    <span class="badge bg-white bg-opacity-5 text-violet border border-secondary border-opacity-10 px-3 py-2 rounded-pill fw-medium mb-3">
+                        <i class="bi bi-circle-fill text-success me-1 small"></i> Available for Selective Contract Roles
+                    </span>
+                    <h1 class="display-3 fw-bold text-white mb-3">
+                        Engineering High-Performance <span class="text-violet">Digital Solutions</span>
+                    </h1>
+                    <p class="lead text-secondary mb-4" style="font-size: 1.15rem; max-width: 620px;">
+                        I am a full-stack developer and digital product strategist specializing in scalable backend architectures, clean modular layout designs, and fast user-friendly software mechanics.
+                    </p>
+                    <div class="d-flex flex-wrap gap-3">
+                        <a href="#contact" class="btn btn-violet px-4 py-2.5">Initiate Project Talk</a>
+                        <a href="#projects" class="btn btn-outline-custom px-4 py-2.5">Review Production Gallery</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Detailed About Profile Section -->
+    <section id="about" class="bg-dev-card" style="border-top: 1px solid rgba(255, 255, 255, 0.02); border-bottom: 1px solid rgba(255, 255, 255, 0.02);">
+        <div class="container">
+            <div class="row g-5 align-items-center">
+                <div class="col-lg-5">
+                    <div class="position-relative">
+                        <img src="http://googleusercontent.com/image_collection/image_retrieval/17991489653299935215_0" class="img-fluid rounded-3 border border-secondary border-opacity-25 shadow-lg" alt="Professional Digital Developer Studio Blueprint Portrait">
+                    </div>
+                </div>
+                <div class="col-lg-7">
+                    <span class="text-violet fw-bold text-uppercase small tracking-wider mb-2 d-block">THE BACKSTORY</span>
+                    <h2 class="h1 text-white mb-3">Blending Computational Execution with Seamless UX</h2>
+                    <p class="text-secondary mb-4">
+                        Over the past six years, I have collaborated with agile tech startups, mid-tier corporate systems, and digital product agencies to build reliable web infrastructures. I address the core engineering complexities so your end-users experience fast, intuitive software performance.
+                    </p>
+                    <p class="text-secondary mb-4">
+                        My core philosophy is focused on technical execution without unneeded code bloat. Every asset path is cleanly optimized, APIs are carefully integrated, and layout contrast scales automatically across devices.
+                    </p>
+                    <div class="row g-4 pt-2">
+                        <div class="col-sm-6">
+                            <h5 class="text-white fw-bold"><i class="bi bi-cpu text-violet me-2"></i>Backend Core Strength</h5>
+                            <p class="text-secondary small mb-0">System design, restful framework engineering, and fast SQL layer queries.</p>
+                        </div>
+                        <div class="col-sm-6">
+                            <h5 class="text-white fw-bold"><i class="bi bi-window-fullscreen text-violet me-2"></i>Frontend Mastery</h5>
+                            <p class="text-secondary small mb-0">Responsive HTML layouts, custom modular JS engines, and fluid CSS animations.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Structural Animated Skills Matrix Component -->
+    <section id="skills" class="bg-dev">
+        <div class="container">
+            <div class="row g-5 align-items-center">
+                <div class="col-lg-5">
+                    <span class="text-violet fw-bold text-uppercase small tracking-wider mb-2 d-block">CAPABILITY MATRIX</span>
+                    <h2 class="h1 text-white mb-3">My Execution Core</h2>
+                    <p class="text-secondary mb-0">
+                        A clean look at my structural proficiency levels across various core development spaces. These metrics track daily active production use over real deployment timelines.
+                    </p>
+                </div>
+                <div class="col-lg-7">
+                    <div class="d-flex flex-column gap-4">
+                        
+                        <!-- Skill 1 -->
+                        <div>
+                            <div class="skill-label-group">
+                                <span class="text-white">Full-Stack Architecture (Node.js / Python)</span>
+                                <span class="text-violet">94%</span>
+                            </div>
+                            <div class="progress">
+                                <div class="progress-bar" style="width: 94%"></div>
+                            </div>
+                        </div>
+
+                        <!-- Skill 2 -->
+                        <div>
+                            <div class="skill-label-group">
+                                <span class="text-white">UI/UX Layout Systems (HTML / CSS / Bootstrap)</span>
+                                <span class="text-violet">88%</span>
+                            </div>
+                            <div class="progress">
+                                <div class="progress-bar" style="width: 88%"></div>
+                            </div>
+                        </div>
+
+                        <!-- Skill 3 -->
+                        <div>
+                            <div class="skill-label-group">
+                                <span class="text-white">Database Optimization & State Management</span>
+                                <span class="text-violet">82%</span>
+                            </div>
+                            <div class="progress">
+                                <div class="progress-bar" style="width: 82%"></div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Filtered Interactive Projects Gallery Grid -->
+    <section id="projects" class="bg-dev-card" style="border-top: 1px solid rgba(255, 255, 255, 0.02); border-bottom: 1px solid rgba(255, 255, 255, 0.02);">
+        <div class="container">
+            <div class="text-center max-width-md mx-auto mb-5" style="max-width: 600px;">
+                <span class="text-violet fw-bold text-uppercase small tracking-wider">PRODUCTION DEPOT</span>
+                <h2 class="h1 text-white mt-1">Selected Masterpieces</h2>
+                <p class="text-secondary">Explore real live enterprise systems and custom digital products built from the ground up.</p>
+            </div>
+
+            <div class="row g-4">
+                <!-- Gallery Item 1 -->
+                <div class="col-md-6">
+                    <div class="gallery-card h-100 d-flex flex-column justify-content-between">
+                        <div>
+                            <div class="gallery-img-container">
+                                <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80" class="gallery-img" alt="SaaS Enterprise Business Intelligence Dashboard Asset View">
+                            </div>
+                            <div class="p-4">
+                                <div class="d-flex gap-2 mb-2">
+                                    <span class="badge bg-white bg-opacity-5 text-secondary small">Node.js</span>
+                                    <span class="badge bg-white bg-opacity-5 text-secondary small">PostgreSQL</span>
+                                </div>
+                                <h3 class="h4 text-white mb-2">Apex Analytics Core Platform</h3>
+                                <p class="text-secondary small mb-0">
+                                    Designed and engineered a high-throughput enterprise SaaS telemetry system dashboard handling over 1.2M automated daily data requests smoothly.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="px-4 pb-4 pt-2">
+                            <a href="#" class="text-violet text-decoration-none small fw-bold d-inline-flex align-items-center gap-2">
+                                Inspect Production Source <i class="bi bi-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 2 -->
+                <div class="col-md-6">
+                    <div class="gallery-card h-100 d-flex flex-column justify-content-between">
+                        <div>
+                            <div class="gallery-img-container">
+                                <img src="https://images.unsplash.com/photo-1555421689-491a97ff2040?auto=format&fit=crop&w=800&q=80" class="gallery-img" alt="Cryptocurrency Decentralized Wallet Asset Grid mockup">
+                            </div>
+                            <div class="p-4">
+                                <div class="d-flex gap-2 mb-2">
+                                    <span class="badge bg-white bg-opacity-5 text-secondary small">JavaScript</span>
+                                    <span class="badge bg-white bg-opacity-5 text-secondary small">Bootstrap 5</span>
+                                </div>
+                                <h3 class="h4 text-white mb-2">Aether Exchange UI Ecosystem</h3>
+                                <p class="text-secondary small mb-0">
+                                    Developed a modular, high-contrast digital wallet system and interactive asset grid featuring responsive layouts and animated transaction modules.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="px-4 pb-4 pt-2">
+                            <a href="#" class="text-violet text-decoration-none small fw-bold d-inline-flex align-items-center gap-2">
+                                Inspect Production Source <i class="bi bi-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Digital Contact Form Section Area -->
+    <section id="contact" class="bg-dev">
+        <div class="container">
+            <div class="row g-5 align-items-center">
+                <div class="col-lg-5">
+                    <span class="text-violet fw-bold text-uppercase small tracking-wider mb-2 d-block">PROJECT ENGINES OPEN</span>
+                    <h2 class="h1 text-white mb-3">Let's Build Something Premium</h2>
+                    <p class="text-secondary mb-4">
+                        Have a refined product concept or software architecture challenge that needs expert execution? Drop your parameter details here. I respond with structural recommendations within 24 business hours.
+                    </p>
+                    <div class="d-flex flex-column gap-3 small text-secondary">
+                        <div class="d-flex align-items-center gap-3">
+                            <i class="bi bi-envelope-at text-violet fs-5"></i>
+                            <span>jonathan@vance.dev</span>
+                        </div>
+                        <div class="d-flex align-items-center gap-3">
+                            <i class="bi bi-geo-alt text-violet fs-5"></i>
+                            <span>San Francisco, CA (Remote Friendly)</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-7">
+                    <!-- Standard Creative Form Layout Interface Container -->
+                    <div class="p-4 p-md-5 bg-dev-card rounded-4 border border-secondary border-opacity-10 shadow-lg" id="contactFormWrapper">
+                        <h4 class="h3 text-white mb-4"><i class="bi bi-terminal text-violet me-2"></i>Open Project Ticket</h4>
+                        <form id="portfolioContactForm" onsubmit="transmitProjectDetails(event)">
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label class="form-label small fw-bold text-white-50">Client Identity / Name</label>
+                                    <input type="text" id="clientName" class="form-control py-2.5" placeholder="Sarah Jenkins" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label small fw-bold text-white-50">Corporate Email Pathway</label>
+                                    <input type="email" id="clientEmail" class="form-control py-2.5" placeholder="sarah@enterprise.com" required>
+                                </div>
+                                <div class="col-12">
+                                    <label class="form-label small fw-bold text-white-50">Project Brief & Deliverable Objectives</label>
+                                    <textarea id="projectBrief" class="form-control py-2.5" rows="4" placeholder="Detail your system goals, timeline frameworks, or technology stack boundaries here..." required></textarea>
+                                </div>
+                                <div class="col-12 mt-4">
+                                    <button type="submit" class="btn btn-violet w-100 py-3 text-white">
+                                        Transmit Project Parameters
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- Modern Interactive System Post-Submission Custom Screen -->
+                    <div class="p-5 text-center bg-dev-card rounded-4 border border-violet border-opacity-20 shadow-lg d-none" id="contactSuccessCard">
+                        <i class="bi bi-shield-check text-violet display-3 mb-4 d-block"></i>
+                        <h3 class="h2 text-white mb-2">Parameters Dispatched!</h3>
+                        <p class="text-secondary mb-4 mx-auto" style="max-width: 460px;">
+                            Connection secured, <span class="text-white fw-bold" id="renderClientName">Client</span>. Your project parameters have been compiled and sent to <span id="renderClientEmail" class="text-white fw-bold">your email</span>. I will review your stack requirements today.
+                        </p>
+                        <button class="btn btn-outline-custom btn-sm px-4" onclick="revertContactInterface()">Reset Communication Node</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Global Professional Developer Footer -->
+    <footer class="py-4" style="background-color: #06070a; border-top: 1px solid rgba(255, 255, 255, 0.02);">
+        <div class="container">
+            <div class="d-flex flex-column flex-md-row justify-content-between align-items-center text-secondary small gap-3">
+                <p class="mb-0">&copy; 2026 Vance Dev Architecture Labs Inc. All rights reserved. System operations are actively verified.</p>
+                <div class="d-flex gap-4">
+                    <a href="#" class="text-secondary text-decoration-none">Secure Vault Architecture</a>
+                    <a href="#" class="text-secondary text-decoration-none">Terms of Contract Engagement</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 Bundle JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Interactive Portfolio Control Mechanics Script -->
+    <script>
+        // Custom interactive script layer capturing contact transmissions securely 
+        function transmitProjectDetails(event) {
+            event.preventDefault();
+
+            const name = document.getElementById('clientName').value;
+            const email = document.getElementById('clientEmail').value;
+
+            // Trigger smooth interface layout adjustments
+            document.getElementById('contactFormWrapper').classList.add('d-none');
+            document.getElementById('contactSuccessCard').classList.remove('d-none');
+
+            document.getElementById('renderClientName').innerText = name;
+            document.getElementById('renderClientEmail').innerText = email;
+        }
+
+        function revertContactInterface() {
+            document.getElementById('portfolioContactForm').reset();
+            document.getElementById('contactSuccessCard').classList.add('d-none');
+            document.getElementById('contactFormWrapper').classList.remove('d-none');
+        }
+    </script>
+</body>
+</html>

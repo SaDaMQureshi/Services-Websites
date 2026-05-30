@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apex Care Clinic | Premium Family Medicine & Diagnostics</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --clinic-teal: #0f766e;
+            --clinic-teal-hover: #115e59;
+            --clinic-dark: #1e293b;
+            --clinic-sage: #f0fdfa;
+            --whatsapp-green: #25d366;
+            --text-muted: #64748b;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            color: #334155;
+            background-color: #ffffff;
+        }
+
+        h1, h2, h3, .clinic-brand {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 700;
+        }
+
+        .text-teal { color: var(--clinic-teal); }
+        .bg-sage { background-color: var(--clinic-sage); }
+        
+        .btn-teal {
+            background-color: var(--clinic-teal);
+            color: white;
+            font-weight: 600;
+            padding: 12px 28px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            border: none;
+        }
+        .btn-teal:hover {
+            background-color: var(--clinic-teal-hover);
+            color: white;
+            transform: translateY(-1px);
+        }
+
+        .btn-whatsapp {
+            background-color: var(--whatsapp-green);
+            color: white;
+            font-weight: 600;
+            padding: 12px 28px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            border: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        .btn-whatsapp:hover {
+            background-color: #20ba5a;
+            color: white;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+        }
+
+        /* Navbar Layout */
+        .navbar {
+            background-color: rgba(255, 255, 255, 0.96);
+            border-bottom: 1px solid #e2e8f0;
+            backdrop-filter: blur(8px);
+        }
+
+        /* Hero Element */
+        .hero-banner {
+            padding: 180px 0 100px 0;
+            background: linear-gradient(135deg, #f0fdfa 0%, #ffffff 100%);
+        }
+
+        /* Service Cards */
+        .service-card {
+            border: 1px solid #e2e8f0;
+            background-color: white;
+            border-radius: 12px;
+            padding: 35px;
+            transition: all 0.3s ease;
+        }
+        .service-card:hover {
+            border-color: var(--clinic-teal);
+            box-shadow: 0 12px 30px rgba(15, 118, 110, 0.06);
+            transform: translateY(-4px);
+        }
+        .service-icon {
+            width: 55px;
+            height: 55px;
+            border-radius: 10px;
+            background-color: var(--clinic-sage);
+            color: var(--clinic-teal);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            margin-bottom: 22px;
+        }
+
+        /* Testimonial Box styling */
+        .testimonial-box {
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 16px;
+            padding: 40px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.02);
+        }
+        .star-rating {
+            color: #f59e0b;
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+
+        /* Generic Section Constraint */
+        section {
+            padding: 100px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center text-dark fs-4 fw-bold m-0" href="#">
+                <i class="bi bi-heart-pulse-fill text-teal me-2"></i>Apex<span class="text-teal">Care</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#clinicNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="clinicNav">
+                <ul class="navbar-nav ms-auto align-items-center gap-4">
+                    <li class="nav-item"><a class="nav-link fw-medium" href="#about">About Us</a></li>
+                    <li class="nav-item"><a class="nav-link fw-medium" href="#services">Medical Services</a></li>
+                    <li class="nav-item"><a class="nav-link fw-medium" href="#testimonials">Reviews</a></li>
+                    <li class="nav-item"><a class="btn btn-teal btn-sm px-4 text-white" href="#booking">Book Appointment</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero-banner">
+        <div class="container">
+            <div class="row align-items-center g-5">
+                <div class="col-lg-6">
+                    <span class="badge bg-sage text-teal px-3 py-2 rounded-pill fw-semibold mb-3">
+                        <i class="bi bi-shield-check me-1"></i> Certified Primary Healthcare Provider
+                    </span>
+                    <h1 class="display-4 fw-bold text-dark mb-3 lh-sm">
+                        Your health is our life's <span class="text-teal">dedicated purpose.</span>
+                    </h1>
+                    <p class="lead text-secondary mb-4">
+                        Experience compassionate, state-of-the-art medical treatment tailored specifically for your family. From advanced laboratory diagnostics to routine wellness screenings, our expert team ensures complete peace of mind.
+                    </p>
+                    <div class="d-flex flex-wrap gap-3">
+                        <a href="#booking" class="btn btn-teal btn-lg px-4">Book Clinical Consultation</a>
+                        <a href="tel:+15550198" class="btn btn-outline-secondary btn-lg px-4 d-flex align-items-center gap-2">
+                            <i class="bi bi-telephone-outbound"></i> Emergency Desk
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-6 text-center">
+                    <div class="position-relative d-inline-block">
+                        <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=800&q=80" class="img-fluid rounded-4 shadow-lg" alt="Modern Medical Consultation Room" style="max-width: 540px; border: 8px solid #ffffff;">
+                        <div class="position-absolute bottom-0 start-0 m-4 p-3 bg-white rounded-3 shadow border d-flex align-items-center gap-3 text-start" style="max-width: 260px;">
+                            <div class="bg-success text-white rounded-circle p-2 d-flex align-items-center justify-content-center" style="width: 40px; height: 40px;">
+                                <i class="bi bi-check-lg"></i>
+                            </div>
+                            <div>
+                                <h6 class="mb-0 fw-bold">Accepting Patients</h6>
+                                <small class="text-muted">All insurance layers active</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="bg-white">
+        <div class="container">
+            <div class="row align-items-center g-5">
+                <div class="col-md-6 order-2 order-md-1">
+                    <div class="row g-3">
+                        <div class="col-6">
+                            <div class="p-4 bg-sage rounded-3 text-center">
+                                <h2 class="display-5 fw-bold text-teal mb-1">15+</h2>
+                                <p class="small text-secondary mb-0 fw-medium">Board Certified Physicians</p>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="p-4 bg-light rounded-3 text-center">
+                                <h2 class="display-5 fw-bold text-dark mb-1">99%</h2>
+                                <p class="small text-secondary mb-0 fw-medium">Patient Satisfaction Score</p>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="p-4 bg-light rounded-3 text-center">
+                                <h2 class="display-5 fw-bold text-dark mb-1">24hr</h2>
+                                <p class="small text-secondary mb-0 fw-medium">Laboratory Turnaround</p>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="p-4 bg-sage rounded-3 text-center">
+                                <h2 class="display-5 fw-bold text-teal mb-1">12k+</h2>
+                                <p class="small text-secondary mb-0 fw-medium">Active Annual Patients</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 order-1 order-md-2">
+                    <span class="text-teal fw-bold text-uppercase small tracking-wider mb-2 d-block">About Our Practice</span>
+                    <h2 class="fw-bold text-dark mb-3">Redefining Patient-Centered Healthcare Standards</h2>
+                    <p class="text-secondary mb-3">
+                        Founded in 2012, Apex Care Clinic operates as a premium modern multi-specialty facility. We prioritize minimal waiting queues, integrated online historical record updates, and thorough, diagnostic evaluations.
+                    </p>
+                    <p class="text-secondary mb-4">
+                        We maintain strict regulatory safety protocols to ensure patient confidentiality and surgical-level sanitization matrices across all screening rooms.
+                    </p>
+                    <ul class="list-unstyled d-flex flex-column gap-2 text-dark fw-medium">
+                        <li><i class="bi bi-patch-check-fill text-teal me-2"></i> On-site state-of-the-art MRI & Ultrasound units</li>
+                        <li><li><i class="bi bi-patch-check-fill text-teal me-2"></i> Electronic Medical Record (EMR) integrated systems</li>
+                        <li><li><i class="bi bi-patch-check-fill text-teal me-2"></i> Direct clinical correlation pharmacy channels</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="bg-sage">
+        <div class="container">
+            <div class="text-center max-width-md mx-auto mb-5" style="max-width: 600px;">
+                <span class="text-teal fw-bold text-uppercase small tracking-wider">Clinical Verticals</span>
+                <h2 class="fw-bold text-dark mt-1">Comprehensive Medical Treatment</h2>
+                <p class="text-secondary">Providing robust clinical care pathways from immediate primary medical intervention up through chronic disease management panels.</p>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="service-card h-100">
+                        <div class="service-icon">
+                            <i class="bi bi-heart-pulse"></i>
+                        </div>
+                        <h4 class="fw-bold text-dark mb-2">General Practice</h4>
+                        <p class="text-secondary mb-0">Routine physical checks, acute disease therapeutics, vaccine operations, and preventative baseline laboratory diagnostics.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="service-card h-100">
+                        <div class="service-icon">
+                            <i class="bi bi-capsule-capsule"></i>
+                        </div>
+                        <h4 class="fw-bold text-dark mb-2">Pediatric Care</h4>
+                        <p class="text-secondary mb-0">Specialized infant growth observation tracks, continuous immunizations, childhood physical screening panels, and gentle care treatment.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="service-card h-100">
+                        <div class="service-icon">
+                            <i class="bi bi-clipboard2-pulse"></i>
+                        </div>
+                        <h4 class="fw-bold text-dark mb-2">Advanced Diagnostics</h4>
+                        <p class="text-secondary mb-0">High-resolution diagnostic capabilities including full digital X-Rays, detailed metabolic profiles, and targeted cardiorespiratory screenings.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="testimonials" class="bg-white">
+        <div class="container">
+            <div class="text-center max-width-md mx-auto mb-5" style="max-width: 600px;">
+                <span class="text-teal fw-bold text-uppercase small tracking-wider">Patient Success</span>
+                <h2 class="fw-bold text-dark mt-1">Verified Patient Testimonials</h2>
+            </div>
+
+            <div class="row g-4 justify-content-center">
+                <div class="col-lg-5">
+                    <div class="testimonial-box h-100 d-flex flex-column justify-content-between">
+                        <div>
+                            <div class="star-rating">
+                                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                            </div>
+                            <h5 class="fw-bold text-dark mb-3">"Incredible Professional Atmosphere"</h5>
+                            <p class="text-secondary mb-4 italic">
+                                "The online check-in was seamless. Dr. Evelyn took over 30 minutes to review my full cardiovascular chart history and break down options. The clinic is absolutely immaculate."
+                            </p>
+                        </div>
+                        <div class="d-flex align-items-center gap-3 pt-3 border-top">
+                            <div class="bg-teal text-white rounded-circle fw-bold d-flex align-items-center justify-content-center" style="width: 44px; height: 44px; font-size: 14px;">
+                                MH
+                            </div>
+                            <div>
+                                <h6 class="mb-0 fw-bold">Marcus Henderson</h6>
+                                <small class="text-muted">Executive Client Patient</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-5">
+                    <div class="testimonial-box h-100 d-flex flex-column justify-content-between">
+                        <div>
+                            <div class="star-rating">
+                                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                            </div>
+                            <h5 class="fw-bold text-dark mb-3">"Exceptional Pediatric Staff"</h5>
+                            <p class="text-secondary mb-4 italic">
+                                "Bringing toddlers to a diagnostic clinic is typically stressful, but the nursing crew went completely out of their way. Warm, attentive, and incredibly quick with lab sampling results."
+                            </p>
+                        </div>
+                        <div class="d-flex align-items-center gap-3 pt-3 border-top">
+                            <div class="bg-secondary text-white rounded-circle fw-bold d-flex align-items-center justify-content-center" style="width: 44px; height: 44px; font-size: 14px;">
+                                CR
+                            </div>
+                            <div>
+                                <h6 class="mb-0 fw-bold">Clara Reynolds</h6>
+                                <small class="text-muted">Family Health Care Client</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="booking" class="bg-sage">
+        <div class="container">
+            <div class="row g-5 align-items-center">
+                <div class="col-lg-5">
+                    <span class="text-teal fw-bold text-uppercase small tracking-wider mb-2 d-block">Instant Registration</span>
+                    <h2 class="fw-bold text-dark mb-3">Schedule Your Appointment Instantly</h2>
+                    <p class="text-secondary mb-4">
+                        Fill out your basic screening interest parameters. Clicking the booking action button will instantly direct your input details straight onto our reception desk WhatsApp support routing line for immediate booking slot confirmation.
+                    </p>
+                    <div class="d-flex flex-column gap-3">
+                        <div class="d-flex align-items-center gap-3">
+                            <div class="text-teal fs-4"><i class="bi bi-clock-history"></i></div>
+                            <div>
+                                <h6 class="fw-bold mb-0">Operational Hours</h6>
+                                <small class="text-muted">Mon — Sat: 08:00 AM – 08:00 PM</small>
+                            </div>
+                        </div>
+                        <div class="d-flex align-items-center gap-3">
+                            <div class="text-teal fs-4"><i class="bi bi-geo-alt"></i></div>
+                            <div>
+                                <h6 class="fw-bold mb-0">Clinic Location</h6>
+                                <small class="text-muted">451 Health Science Blvd, Suite B, Metropolis</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-7">
+                    <div class="p-4 p-md-5 bg-white rounded-4 shadow-sm border">
+                        <h4 class="fw-bold text-dark mb-4"><i class="bi bi-calendar2-check text-teal me-2"></i>Intake Configuration Desk</h4>
+                        <form id="whatsappForm" onsubmit="routeToWhatsApp(event)">
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label class="form-label small fw-bold">Full Patient Name</label>
+                                    <input type="text" id="patientName" class="form-control bg-light" placeholder="John Doe" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label small fw-bold">Target Department</label>
+                                    <select id="medicalDept" class="form-select bg-light">
+                                        <option value="General Family Medicine">General Family Medicine</option>
+                                        <option value="Pediatric Wellness">Pediatric Wellness Care</option>
+                                        <option value="Advanced Lab Diagnostics">Advanced Lab Diagnostics</option>
+                                    </select>
+                                </div>
+                                <div class="col-12">
+                                    <label class="form-label small fw-bold">Preferred Booking Timing & Special Notes</label>
+                                    <textarea id="patientNotes" class="form-control bg-light" rows="3" placeholder="Example: Prefer Tuesday morning slots. Routine blood panel request." required></textarea>
+                                </div>
+                                <div class="col-12 mt-4">
+                                    <button type="submit" class="btn btn-whatsapp w-100 py-3">
+                                        <i class="bi bi-whatsapp fs-5"></i> Book via WhatsApp Dispatcher
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-dark text-white pt-5 pb-4">
+        <div class="container">
+            <div class="d-flex flex-column flex-md-row justify-content-between align-items-center text-white-50 small gap-3">
+                <p class="mb-0">&copy; 2026 Apex Care Clinic Practice. All rights reserved. Medical Licensure Code #MED-9428-A.</p>
+                <div class="d-flex gap-4">
+                    <a href="#" class="text-white-50 text-decoration-none">Patient Privacy Charter</a>
+                    <a href="#" class="text-white-50 text-decoration-none">Terms of Care</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        function routeToWhatsApp(event) {
+            event.preventDefault(); // Stop raw layout page refresh
+
+            // Capture raw field element parameters
+            const name = document.getElementById('patientName').value;
+            const department = document.getElementById('medicalDept').value;
+            const notes = document.getElementById('patientNotes').value;
+
+            // Replace with your real clinical WhatsApp target phone index number (Include country code, no spaces/special symbols)
+            const clinicPhoneNumber = "15550198322"; 
+
+            // Create carefully encoded text strings for clear desk triage representation
+            const textMessage = `Hello Apex Care Clinic Registry,%0A%0AI would like to schedule an appointment booking:%0A%0A*Patient Name:* ${encodeURIComponent(name)}%0A*Target Specialty:* ${encodeURIComponent(department)}%0A*Timing & Notes:* ${encodeURIComponent(notes)}%0A%0APlease verify the closest available open scheduling matrix slot.`;
+
+            // Open target browser system window string routing directly over to official WhatsApp interface APIs
+            window.open(`https://api.whatsapp.com/send?phone=${clinicPhoneNumber}&text=${textMessage}`, '_blank');
+        }
+    </script>
+</body>
+</html>

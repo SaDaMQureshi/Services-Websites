@@ -1,0 +1,986 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Elite Masterclass | Accelerate Your Career & Business</title>
+    <!-- Bootstrap 5 CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- Bootstrap Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      :root {
+        --brand-dark: #0f172a;
+        --brand-accent: #f97316;
+        --brand-accent-hover: #ea580c;
+        --brand-indigo: #4f46e5;
+        --brand-cream: #fdfbf7;
+        --text-secondary: #475569;
+      }
+
+      body {
+        font-family: "Plus Jakarta Sans", sans-serif;
+        color: #1e293b;
+        background-color: var(--brand-cream);
+        overflow-x: hidden;
+      }
+
+      h1,
+      h2,
+      h3,
+      .brand-font {
+        font-family: "Playfair Display", serif;
+        font-weight: 700;
+      }
+
+      /* Utilities */
+      .text-accent {
+        color: var(--brand-accent);
+      }
+      .bg-dark-slate {
+        background-color: var(--brand-dark);
+      }
+
+      .btn-accent {
+        background-color: var(--brand-accent);
+        color: white;
+        font-weight: 600;
+        padding: 14px 32px;
+        border-radius: 8px;
+        transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        border: none;
+      }
+      .btn-accent:hover {
+        background-color: var(--brand-accent-hover);
+        color: white;
+        transform: translateY(-2px);
+        box-shadow: 0 8px 20px rgba(249, 115, 22, 0.25);
+      }
+
+      .btn-outline-dark-custom {
+        background-color: transparent;
+        color: var(--brand-dark);
+        font-weight: 600;
+        padding: 14px 32px;
+        border-radius: 8px;
+        border: 2px solid var(--brand-dark);
+        transition: all 0.3s ease;
+      }
+      .btn-outline-dark-custom:hover {
+        background-color: var(--brand-dark);
+        color: white;
+      }
+
+      /* Header / Navigation */
+      .navbar {
+        background-color: rgba(253, 251, 247, 0.95);
+        border-bottom: 1px solid rgba(15, 23, 42, 0.08);
+        backdrop-filter: blur(12px);
+      }
+
+      /* Hero Wrapper */
+      .hero-section {
+        padding: 160px 0 100px 0;
+        background: radial-gradient(
+          circle at 10% 20%,
+          rgba(79, 70, 229, 0.05) 0%,
+          rgba(253, 251, 247, 1) 90%
+        );
+      }
+
+      /* Custom Interactive Video Frame */
+      .video-wrapper {
+        position: relative;
+        border-radius: 16px;
+        overflow: hidden;
+        box-shadow: 0 25px 50px -12px rgba(15, 23, 42, 0.15);
+        aspect-ratio: 16/9;
+        background-color: #000;
+      }
+
+      .video-cover {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background:
+          linear-gradient(rgba(15, 23, 42, 0.4), rgba(15, 23, 42, 0.7)),
+          url("https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=80")
+            no-repeat center center/cover;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        z-index: 2;
+        transition: opacity 0.5s ease;
+      }
+
+      .play-btn {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        background-color: white;
+        color: var(--brand-accent);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 32px;
+        padding-left: 6px; /* Align icon center */
+        box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.5);
+        animation: pulse-ring 2s infinite;
+        transition: all 0.3s ease;
+      }
+
+      .video-cover:hover .play-btn {
+        transform: scale(1.1);
+        background-color: var(--brand-accent);
+        color: white;
+      }
+
+      @keyframes pulse-ring {
+        0% {
+          box-shadow: 0 0 0 0 rgba(249, 115, 22, 0.4);
+        }
+        70% {
+          box-shadow: 0 0 0 20px rgba(249, 115, 22, 0);
+        }
+        100% {
+          box-shadow: 0 0 0 0 rgba(249, 115, 22, 0);
+        }
+      }
+
+      /* Syllabus Accordion */
+      .accordion-item {
+        border: 1px solid rgba(15, 23, 42, 0.08) !important;
+        border-radius: 12px !important;
+        margin-bottom: 16px;
+        background-color: white;
+        overflow: hidden;
+      }
+      .accordion-button {
+        font-family: "Plus Jakarta Sans", sans-serif;
+        font-weight: 600;
+        padding: 24px;
+        color: var(--brand-dark);
+        background-color: white !important;
+        box-shadow: none !important;
+      }
+      .accordion-button:not(.collapsed) {
+        color: var(--brand-indigo);
+        border-bottom: 1px solid rgba(15, 23, 42, 0.08);
+      }
+      .accordion-body {
+        padding: 24px;
+        background-color: #fafbfc;
+      }
+
+      /* Pricing Configuration */
+      .pricing-card {
+        border: 1px solid rgba(15, 23, 42, 0.08);
+        border-radius: 16px;
+        padding: 40px;
+        background-color: white;
+        transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+      .pricing-card.premium {
+        border: 2px solid var(--brand-indigo);
+        box-shadow: 0 20px 40px -10px rgba(79, 70, 229, 0.12);
+        position: relative;
+      }
+      .pricing-card.premium::before {
+        content: "MOST POPULAR";
+        position: absolute;
+        top: -15px;
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: var(--brand-indigo);
+        color: white;
+        font-size: 11px;
+        font-weight: 700;
+        padding: 4px 16px;
+        border-radius: 20px;
+        letter-spacing: 1px;
+      }
+
+      /* Reviews & Feedback elements */
+      .review-card {
+        background-color: white;
+        border: 1px solid rgba(15, 23, 42, 0.06);
+        border-radius: 16px;
+        padding: 35px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.01);
+      }
+
+      /* Global Padding Rules */
+      section {
+        padding: 100px 0;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Top Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3">
+      <div class="container">
+        <a
+          class="navbar-brand d-flex align-items-center text-dark fs-4 fw-bold m-0"
+          href="#"
+        >
+          <i class="bi bi-mortarboard-fill text-accent me-2"></i>LEAD<span
+            class="text-accent"
+            >X</span
+          >
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#courseNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="courseNav">
+          <ul class="navbar-nav ms-auto align-items-center gap-4">
+            <li class="nav-item">
+              <a class="nav-link fw-medium" href="#about">Your Instructor</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link fw-medium" href="#syllabus">Syllabus</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link fw-medium" href="#pricing">Pricing</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link fw-medium" href="#reviews">Success Stories</a>
+            </li>
+            <li class="nav-item">
+              <a class="btn btn-accent btn-sm px-4 text-white" href="#enroll"
+                >Enroll Now</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+      <div class="container">
+        <div class="row align-items-center g-5">
+          <div class="col-lg-6">
+            <span
+              class="badge bg-white text-dark border px-3 py-2 rounded-pill fw-semibold mb-3 shadow-sm"
+            >
+              <i class="bi bi-fire text-accent me-1"></i> Cohort 12 Enrollment
+              Closing Soon
+            </span>
+            <h1 class="display-4 fw-bold text-dark mb-3 lh-sm">
+              Master Strategic Business Leadership &
+              <span class="text-accent">Scale with Authority</span>
+            </h1>
+            <p class="lead text-secondary mb-4">
+              A rigorous, 8-week system built for executives, startup founders,
+              and elite consultants who want to unlock masterclass execution,
+              build scalable operations, and lead global teams.
+            </p>
+            <div class="d-flex flex-wrap gap-3 mb-4">
+              <a href="#enroll" class="btn btn-accent btn-lg px-4"
+                >Secure My Cohort Seat</a
+              >
+              <a
+                href="#syllabus"
+                class="btn btn-outline-dark-custom btn-lg px-4"
+                >View Full Syllabus</a
+              >
+            </div>
+            <div class="d-flex align-items-center gap-3">
+              <div class="d-flex -space-x-2">
+                <span
+                  class="badge bg-success bg-opacity-10 text-success rounded-pill px-2.5 py-1 fw-bold"
+                  ><i class="bi bi-check-circle-fill me-1"></i> Limited to 40
+                  Seats Globally</span
+                >
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <!-- Interactive Video Frame -->
+            <div class="video-wrapper">
+              <div
+                class="video-cover"
+                id="videoCover"
+                onclick="loadCourseVideo()"
+              >
+                <div class="play-btn">
+                  <i class="bi bi-play-fill"></i>
+                </div>
+              </div>
+              <!-- Responsive Video Element Embed Container -->
+              <div
+                id="videoContainer"
+                style="display: none; width: 100%; height: 100%"
+              >
+                <iframe
+                  id="courseIframe"
+                  width="100%"
+                  height="100%"
+                  src=""
+                  title="Course Trailer Video"
+                  frameborder="0"
+                  allow="
+                    accelerometer;
+                    autoplay;
+                    clipboard-write;
+                    encrypted-media;
+                    gyroscope;
+                    picture-in-picture;
+                    web-share;
+                  "
+                  allowfullscreen
+                ></iframe>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Instructor Section -->
+    <section id="about" class="bg-white">
+      <div class="container">
+        <div class="row align-items-center g-5">
+          <div class="col-lg-5">
+            <img
+              src="http://googleusercontent.com/image_collection/image_retrieval/17991489653299935215_0"
+              class="img-fluid rounded-4 shadow-lg border"
+              alt="Executive Coach Portrait Study"
+            />
+          </div>
+          <div class="col-lg-7">
+            <span
+              class="text-accent fw-bold text-uppercase small tracking-wider mb-2 d-block"
+              >MEET YOUR COACH</span
+            >
+            <h2 class="fw-bold text-dark mb-3">Hi, I'm Jonathan Vance</h2>
+            <p class="lead text-secondary mb-4">
+              Over the last 15 years, I've scaled three tech agencies to $10M+
+              annual recurring revenue (ARR) and guided over 2,000 global
+              managers into peak leadership roles.
+            </p>
+            <p class="text-secondary mb-4">
+              This program isn't about dry theory. It's a collection of real,
+              battle-tested playbooks, operational frameworks, and structural
+              growth strategies that actually work in real-world hypergrowth
+              environments.
+            </p>
+            <div class="row g-4">
+              <div class="col-sm-6">
+                <div class="d-flex align-items-center gap-2">
+                  <i class="bi bi-trophy-fill text-accent fs-4"></i>
+                  <span class="fw-bold text-dark"
+                    >Advisor to Fortune 500 Leaders</span
+                  >
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="d-flex align-items-center gap-2">
+                  <i class="bi bi-stars text-accent fs-4"></i>
+                  <span class="fw-bold text-dark">Ex-Tech VP of Product</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Course Syllabus Accordion -->
+    <section
+      id="syllabus"
+      class="bg-light-teal"
+      style="background-color: #faf8f5"
+    >
+      <div class="container">
+        <div
+          class="text-center max-width-md mx-auto mb-5"
+          style="max-width: 600px"
+        >
+          <span class="text-accent fw-bold text-uppercase small tracking-wider"
+            >Curriculum Matrix</span
+          >
+          <h2 class="fw-bold text-dark mt-1">Syllabus Breakdown</h2>
+          <p class="text-secondary">
+            Explore the 8-week developmental path planned out to systematically
+            scale your operating models and strategic capabilities.
+          </p>
+        </div>
+
+        <div class="row justify-content-center">
+          <div class="col-lg-9">
+            <div class="accordion" id="syllabusAccordion">
+              <!-- Module 1 -->
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button
+                    class="accordion-button"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#collapseOne"
+                    aria-expanded="true"
+                  >
+                    <span class="text-accent me-3">MODULE 01</span> Foundation
+                    Strategy & Operating Baselines
+                  </button>
+                </h2>
+                <div
+                  id="collapseOne"
+                  class="accordion-collapse collapse show"
+                  data-bs-parent="#syllabusAccordion"
+                >
+                  <div class="accordion-body">
+                    <p class="text-secondary">
+                      Start with the fundamental strategy frameworks. In this
+                      module, you will master baseline analysis, core OKR
+                      mappings, and evaluate growth blocks.
+                    </p>
+                    <ul
+                      class="list-unstyled d-flex flex-column gap-2 text-dark font-medium mt-3"
+                    >
+                      <li>
+                        <i class="bi bi-check2 text-accent me-2"></i> Mapping
+                        executive strategy roadmaps
+                      </li>
+                      <li>
+                        <i class="bi bi-check2 text-accent me-2"></i>
+                        Standardizing performance dashboard benchmarks
+                      </li>
+                      <li>
+                        <i class="bi bi-check2 text-accent me-2"></i> Building
+                        functional system models
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Module 2 -->
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#collapseTwo"
+                    aria-expanded="false"
+                  >
+                    <span class="text-accent me-3">MODULE 02</span> Scaling
+                    Operations & Operational Leverage
+                  </button>
+                </h2>
+                <div
+                  id="collapseTwo"
+                  class="accordion-collapse collapse"
+                  data-bs-parent="#syllabusAccordion"
+                >
+                  <div class="accordion-body">
+                    <p class="text-secondary">
+                      Learn how to build frameworks that eliminate performance
+                      bottlenecks and increase your operational capacity without
+                      adding massive overhead.
+                    </p>
+                    <ul
+                      class="list-unstyled d-flex flex-column gap-2 text-dark font-medium mt-3"
+                    >
+                      <li>
+                        <i class="bi bi-check2 text-accent me-2"></i> Building
+                        efficient task management SOPs
+                      </li>
+                      <li>
+                        <i class="bi bi-check2 text-accent me-2"></i> Delegating
+                        and managing functional team layers
+                      </li>
+                      <li>
+                        <i class="bi bi-check2 text-accent me-2"></i> Deploying
+                        automation systems for routine workflows
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Module 3 -->
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#collapseThree"
+                    aria-expanded="false"
+                  >
+                    <span class="text-accent me-3">MODULE 03</span> Advanced
+                    Financial Engineering & Exit Structures
+                  </button>
+                </h2>
+                <div
+                  id="collapseThree"
+                  class="accordion-collapse collapse"
+                  data-bs-parent="#syllabusAccordion"
+                >
+                  <div class="accordion-body">
+                    <p class="text-secondary">
+                      Understand capital structuring, asset modeling, and
+                      valuation metrics designed to attract institutional buyers
+                      or scale capital.
+                    </p>
+                    <ul
+                      class="list-unstyled d-flex flex-column gap-2 text-dark font-medium mt-3"
+                    >
+                      <li>
+                        <i class="bi bi-check2 text-accent me-2"></i> Assessing
+                        investment returns and asset value ratios
+                      </li>
+                      <li>
+                        <i class="bi bi-check2 text-accent me-2"></i>
+                        Structuring deals and managing cap tables
+                      </li>
+                      <li>
+                        <i class="bi bi-check2 text-accent me-2"></i> Planning
+                        corporate capital allocation frameworks
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="bg-white">
+      <div class="container">
+        <div
+          class="text-center max-width-md mx-auto mb-5"
+          style="max-width: 600px"
+        >
+          <span class="text-accent fw-bold text-uppercase small tracking-wider"
+            >CHOOSE YOUR PATH</span
+          >
+          <h2 class="fw-bold text-dark mt-1">Invest in Your Growth</h2>
+        </div>
+
+        <div class="row g-4 justify-content-center">
+          <!-- Tier 1 -->
+          <div class="col-md-5">
+            <div
+              class="pricing-card h-100 d-flex flex-column justify-content-between"
+            >
+              <div>
+                <h4 class="fw-bold text-dark mb-1">Self-Paced Masters</h4>
+                <p class="text-secondary small mb-4">
+                  Complete access to the digital course video ecosystem.
+                </p>
+                <div class="mb-4">
+                  <span class="display-5 fw-bold text-dark">$997</span>
+                  <small class="text-muted">one-time investment</small>
+                </div>
+                <hr class="my-4" />
+                <ul
+                  class="list-unstyled d-flex flex-column gap-3 text-secondary small"
+                >
+                  <li>
+                    <i class="bi bi-check text-accent me-2 fs-5"></i> All 8
+                    high-definition core syllabus modules
+                  </li>
+                  <li>
+                    <i class="bi bi-check text-accent me-2 fs-5"></i> 25
+                    downloadable system templates and spreadsheets
+                  </li>
+                  <li>
+                    <i class="bi bi-check text-accent me-2 fs-5"></i> Lifetime
+                    digital masterclass account updates
+                  </li>
+                </ul>
+              </div>
+              <div class="pt-4 mt-auto">
+                <a
+                  href="#enroll"
+                  class="btn btn-outline-dark-custom w-100"
+                  onclick="setPriceLevel('Self-Paced Masters')"
+                  >Secure Self-Paced Access</a
+                >
+              </div>
+            </div>
+          </div>
+
+          <!-- Tier 2 -->
+          <div class="col-md-5">
+            <div
+              class="pricing-card premium h-100 d-flex flex-column justify-content-between"
+            >
+              <div>
+                <h4 class="fw-bold text-dark mb-1">Private Hybrid Coaching</h4>
+                <p class="text-secondary small mb-4">
+                  All digital systems plus direct, active strategic advisory
+                  panels.
+                </p>
+                <div class="mb-4">
+                  <span class="display-5 fw-bold text-dark">$2,497</span>
+                  <small class="text-muted">one-time investment</small>
+                </div>
+                <hr class="my-4" />
+                <ul
+                  class="list-unstyled d-flex flex-column gap-3 text-secondary small"
+                >
+                  <li>
+                    <i class="bi bi-check text-accent me-2 fs-5"></i>
+                    <strong>Everything in Self-Paced Tier</strong>
+                  </li>
+                  <li>
+                    <i class="bi bi-check text-accent me-2 fs-5"></i> Four
+                    private, 1-on-1 strategy sessions with Jonathan
+                  </li>
+                  <li>
+                    <i class="bi bi-check text-accent me-2 fs-5"></i> Direct
+                    private Slack/WhatsApp chat line access
+                  </li>
+                  <li>
+                    <i class="bi bi-check text-accent me-2 fs-5"></i> Weekly
+                    group coaching accountability reviews
+                  </li>
+                </ul>
+              </div>
+              <div class="pt-4 mt-auto">
+                <a
+                  href="#enroll"
+                  class="btn btn-accent w-100 text-white"
+                  onclick="setPriceLevel('Private Hybrid Coaching')"
+                  >Apply for Coaching Tier</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Student Reviews Section -->
+    <section id="reviews" class="bg-light" style="background-color: #faf8f5">
+      <div class="container">
+        <div
+          class="text-center max-width-md mx-auto mb-5"
+          style="max-width: 600px"
+        >
+          <span class="text-accent fw-bold text-uppercase small tracking-wider"
+            >ALUMNI VOICES</span
+          >
+          <h2 class="fw-bold text-dark mt-1">True Business Success Stories</h2>
+        </div>
+
+        <div class="row g-4 justify-content-center">
+          <!-- Testimonial 1 -->
+          <div class="col-lg-5">
+            <div
+              class="review-card h-100 d-flex flex-column justify-content-between"
+            >
+              <div>
+                <div class="text-warning mb-3">
+                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i
+                  ><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i
+                  ><i class="bi bi-star-fill"></i>
+                </div>
+                <h5 class="fw-bold text-dark mb-3">
+                  "We doubled our agency size"
+                </h5>
+                <p class="text-secondary mb-4 italic">
+                  "The scaling and delegation workflows in Module 2 literally
+                  saved my business. We were stuck at $50k MRR for over two
+                  years. Applying the SOP structures allowed us to cross $110k
+                  MRR inside five months."
+                </p>
+              </div>
+              <div class="d-flex align-items-center gap-3 pt-3 border-top">
+                <div
+                  class="bg-accent text-white rounded-circle fw-bold d-flex align-items-center justify-content-center"
+                  style="width: 44px; height: 44px; font-size: 14px"
+                >
+                  SL
+                </div>
+                <div>
+                  <h6 class="mb-0 fw-bold">Sarah Larsen</h6>
+                  <small class="text-muted">CEO, Larsen Marketing Group</small>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Testimonial 2 -->
+          <div class="col-lg-5">
+            <div
+              class="review-card h-100 d-flex flex-column justify-content-between"
+            >
+              <div>
+                <div class="text-warning mb-3">
+                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i
+                  ><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i
+                  ><i class="bi bi-star-fill"></i>
+                </div>
+                <h5 class="fw-bold text-dark mb-3">
+                  "Clarity on high-leverage frameworks"
+                </h5>
+                <p class="text-secondary mb-4 italic">
+                  "Jonathan's approach is tactical, direct, and completely free
+                  of generic fluff. The private coaching sessions completely
+                  redesigned our operating matrix. It's the best educational ROI
+                  I've ever made."
+                </p>
+              </div>
+              <div class="d-flex align-items-center gap-3 pt-3 border-top">
+                <img
+                  src="http://googleusercontent.com/image_collection/image_retrieval/17991489653299935215_1"
+                  class="rounded-circle object-fit-cover"
+                  style="width: 44px; height: 44px"
+                  alt="Student Avatar Profile"
+                />
+                <div>
+                  <h6 class="mb-0 fw-bold">Marcus Thorne</h6>
+                  <small class="text-muted">Product Director, Apex Tech</small>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Enrollment Form Section -->
+    <section id="enroll" class="bg-white">
+      <div class="container">
+        <div class="row g-5 align-items-center">
+          <div class="col-lg-5">
+            <span
+              class="text-accent fw-bold text-uppercase small tracking-wider mb-2 d-block"
+              >CHOOSE YOUR SEAT</span
+            >
+            <h2 class="fw-bold text-dark mb-3">Start Scaling Today</h2>
+            <p class="text-secondary mb-4">
+              Ready to join? Secure your application baseline below. Once
+              submitted, our operations team will review your application
+              parameters and dispatch your custom student onboarding link.
+            </p>
+            <div class="p-4 bg-light rounded-3 border">
+              <h6 class="fw-bold text-dark mb-2">Program Inclusions:</h6>
+              <ul
+                class="list-unstyled d-flex flex-column gap-2 text-secondary small mb-0"
+              >
+                <li>
+                  <i class="bi bi-shield-check text-accent me-2"></i> Secure SSL
+                  payment checkout options
+                </li>
+                <li>
+                  <i class="bi bi-shield-check text-accent me-2"></i> 14-day
+                  absolute money-back policy
+                </li>
+                <li>
+                  <i class="bi bi-shield-check text-accent me-2"></i>
+                  Interactive cohort dashboard access
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-lg-7">
+            <!-- Standard Registration Panel -->
+            <div
+              class="p-4 p-md-5 bg-white rounded-4 border shadow-sm"
+              id="enrollmentCard"
+            >
+              <h4 class="fw-bold text-dark mb-4">
+                <i class="bi bi-send text-accent me-2"></i>Student Registration
+                Desk
+              </h4>
+              <form id="enrollmentForm" onsubmit="processEnrollment(event)">
+                <div class="row g-3">
+                  <div class="col-md-6">
+                    <label class="form-label small fw-bold"
+                      >First & Last Name</label
+                    >
+                    <input
+                      type="text"
+                      id="studentName"
+                      class="form-control bg-light py-2.5"
+                      placeholder="Alex Carter"
+                      required
+                    />
+                  </div>
+                  <div class="col-md-6">
+                    <label class="form-label small fw-bold"
+                      >Corporate Email</label
+                    >
+                    <input
+                      type="email"
+                      id="studentEmail"
+                      class="form-control bg-light py-2.5"
+                      placeholder="alex@company.com"
+                      required
+                    />
+                  </div>
+                  <div class="col-md-6">
+                    <label class="form-label small fw-bold"
+                      >Your Target Path</label
+                    >
+                    <select
+                      id="selectedTier"
+                      class="form-select bg-light py-2.5"
+                    >
+                      <option value="Self-Paced Masters">
+                        Self-Paced Masters ($997)
+                      </option>
+                      <option value="Private Hybrid Coaching" selected>
+                        Private Hybrid Coaching ($2,497)
+                      </option>
+                    </select>
+                  </div>
+                  <div class="col-md-6">
+                    <label class="form-label small fw-bold"
+                      >Describe Your Primary Goal</label
+                    >
+                    <input
+                      type="text"
+                      id="studentGoal"
+                      class="form-control bg-light py-2.5"
+                      placeholder="Scaling ARR, transition..."
+                      required
+                    />
+                  </div>
+                  <div class="col-12 mt-4">
+                    <button
+                      type="submit"
+                      class="btn btn-accent w-100 py-3 text-white"
+                    >
+                      Submit Registration Application
+                    </button>
+                  </div>
+                </div>
+              </form>
+            </div>
+
+            <!-- Post Submit Custom Success Display -->
+            <div
+              class="p-5 text-center bg-white rounded-4 border shadow-sm d-none"
+              id="successCard"
+            >
+              <i
+                class="bi bi-patch-check-fill text-success fs-1 mb-4 d-block"
+              ></i>
+              <h3 class="fw-bold text-dark mb-2">Application Received!</h3>
+              <p class="text-secondary mb-4 mx-auto" style="max-width: 480px">
+                Thank you,
+                <span class="fw-bold text-dark" id="successName">Alex</span>. We
+                have dispatched a confirmation receipt over to
+                <span id="successEmail" class="fw-bold text-dark"
+                  >your email</span
+                >. Our operations desk will review your submission parameters
+                and contact you within 24 business hours.
+              </p>
+              <button
+                class="btn btn-outline-dark-custom btn-sm px-4"
+                onclick="resetFormState()"
+              >
+                Return to Form
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Global Professional Footer -->
+    <footer class="bg-dark-slate text-white pt-5 pb-4">
+      <div class="container">
+        <div
+          class="d-flex flex-column flex-md-row justify-content-between align-items-center text-white-50 small gap-3"
+        >
+          <p class="mb-0">
+            &copy; 2026 LeadX Professional Masterclass Inc. All rights reserved.
+            Strategy guidelines are verified.
+          </p>
+          <div class="d-flex gap-4">
+            <a href="#" class="text-white-50 text-decoration-none"
+              >Privacy Policy</a
+            >
+            <a href="#" class="text-white-50 text-decoration-none"
+              >Terms of Access</a
+            >
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Bootstrap 5 Bundle JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Client Interactive Mechanics Script -->
+    <script>
+      // Smoothly swap intro cover to YouTube embed trailer to support interactive flow
+      function loadCourseVideo() {
+        const cover = document.getElementById("videoCover");
+        const container = document.getElementById("videoContainer");
+        const iframe = document.getElementById("courseIframe");
+
+        // Standard royalty-free/educational trailer video parameter placeholder
+        const ytEmbedUrl =
+          "https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1";
+
+        cover.style.opacity = "0";
+        setTimeout(() => {
+          cover.style.display = "none";
+          container.style.display = "block";
+          iframe.src = ytEmbedUrl;
+        }, 500);
+      }
+
+      // Dropdown setter helper logic triggered by pricing tier selections
+      function setPriceLevel(tierName) {
+        const selectEl = document.getElementById("selectedTier");
+        selectEl.value = tierName;
+      }
+
+      // Onsubmit simulation
+      function processEnrollment(event) {
+        event.preventDefault();
+
+        const name = document.getElementById("studentName").value;
+        const email = document.getElementById("studentEmail").value;
+
+        // Swap standard form viewport panel with success checkcard
+        document.getElementById("enrollmentCard").classList.add("d-none");
+        document.getElementById("successCard").classList.remove("d-none");
+
+        document.getElementById("successName").innerText = name;
+        document.getElementById("successEmail").innerText = email;
+      }
+
+      function resetFormState() {
+        document.getElementById("enrollmentForm").reset();
+        document.getElementById("successCard").classList.add("d-none");
+        document.getElementById("enrollmentCard").classList.remove("d-none");
+      }
+    </script>
+  </body>
+</html>
